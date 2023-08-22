@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/aem-vue/clientlibs"/>
+    <filter root="/apps/aem-vue/components"/>
+    <filter root="/apps/aem-vue/i18n"/>
+</workspaceFilter>
