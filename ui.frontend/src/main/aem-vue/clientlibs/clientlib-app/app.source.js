@@ -1,9 +1,11 @@
 const {createApp} = Vue;
 
+import HelloWorld from  "../../components/helloworld/main";
+
 // Create the Vue app
 const app = createApp({
     components: {
-
+        HelloWorld
     }
 });
 

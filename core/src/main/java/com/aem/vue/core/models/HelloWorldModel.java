@@ -46,11 +46,12 @@ public class HelloWorldModel {
     private ResourceResolver resourceResolver;
 
     private String message;
+    private String currentPagePath;
 
     @PostConstruct
     protected void init() {
         PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
-        String currentPagePath = Optional.ofNullable(pageManager)
+        currentPagePath = Optional.ofNullable(pageManager)
                 .map(pm -> pm.getContainingPage(currentResource))
                 .map(Page::getPath).orElse("");
 
@@ -61,6 +62,10 @@ public class HelloWorldModel {
 
     public String getMessage() {
         return message;
+    }
+
+    public String getJsonData() {
+        return "{ \"resourceType\": \"" + resourceType + "\", \"currentPagePath\": \"" + currentPagePath + "\" }";
     }
 
 }
