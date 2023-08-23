@@ -15,6 +15,7 @@
 */-->
 <sly data-sly-use.clientlib="core/wcm/components/commons/v1/templates/clientlib.html">
     <sly data-sly-call="${clientlib.css @ categories='aem-vue.base'}"/>
+    <sly data-sly-call="${clientlib.js @ categories='aem-vue.clientlibs.clientlib-header'}"/>
 </sly>
 
 <sly data-sly-resource="${'contexthub' @ resourceType='granite/contexthub/components/contexthub'}"/>

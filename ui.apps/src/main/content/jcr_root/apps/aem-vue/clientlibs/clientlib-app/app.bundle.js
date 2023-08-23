@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[0],[function(p,n){(0,Vue.createApp)({components:{}}).mount("#app")}],[[0,1]]]);

@@ -1,0 +1,28 @@
+const path = require('path');
+const sourcesPath = path.dirname(__filename);
+const cwd = process.cwd();
+const destinationPath = sourcesPath.replace('ui.frontend/src/main', 'ui.apps/src/main/content/jcr_root/apps');
+
+const nodeModules = path.join(cwd, 'node_modules');
+const styles = path.join(sourcesPath, 'theme');
+const includePaths = [nodeModules, styles];
+
+module.exports = {
+    general: {
+       projectKey: "apps",
+       sourceKey: "source",
+       bundleKey: "bundle",
+       sourcesPath: sourcesPath,
+       destinationPath: destinationPath
+    },
+    optimization: {
+        minimize: true,
+        runtimeChunk: {
+            name: 'clientlibs/clientlib-header/js/treeshaking.bundle.js'
+        }
+    },
+    sass: {
+        includePaths: includePaths,
+        outputStyle: 'compressed'
+    }
+}

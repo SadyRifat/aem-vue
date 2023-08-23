@@ -1,0 +1,23 @@
+{
+  "root": true,
+  "extends": ["airbnb-base", "prettier"],
+  "env": {
+    "jest": true,
+    "browser": true
+  },
+  "rules": {
+    "no-param-reassign": ["error", { "props": false }],
+    "comma-dangle": ["error", "always-multiline"],
+    "global-require": "off",
+    "import/extensions": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/no-unresolved": "off",
+    "import/no-named-as-default": 1,
+    "import/prefer-default-export": 0,
+    "func-names": "off",
+    "prefer-destructuring": 0,
+    "implicit-arrow-linebreak": 0,
+    "no-restricted-globals": ["off", "location", "top"],
+    "object-curly-newline": ["error", { "consistent": true }]
+  }
+}

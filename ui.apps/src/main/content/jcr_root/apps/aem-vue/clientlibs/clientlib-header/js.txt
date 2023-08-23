@@ -1,0 +1,4 @@
+#base=js
+vue-3.3.4.source.js
+vuex-4.0.0.js
+treeshaking.bundle.js
