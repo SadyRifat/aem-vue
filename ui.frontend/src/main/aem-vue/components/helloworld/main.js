@@ -1,5 +1,7 @@
 import HelloTemplate from './template'
-const {defineComponent} = Vue;
+import AppStore from "../../store";
+
+const { ref, defineComponent, watch } = Vue;
 
 export default defineComponent({
     template: HelloTemplate.template,
@@ -7,6 +9,12 @@ export default defineComponent({
         modelData: String
     },
     setup() {
-
+        const count = ref(AppStore.getters['Counter/getCount']);
+        watch(() => AppStore.getters['Counter/getCount'],
+            (newCount) => {
+                count.value = newCount + 2;
+            }
+        );
+        return { count };
     },
 });

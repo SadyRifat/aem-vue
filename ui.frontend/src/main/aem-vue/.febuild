@@ -16,7 +16,7 @@ module.exports = {
        destinationPath: destinationPath
     },
     optimization: {
-        minimize: true,
+        minimize: false,
         runtimeChunk: {
             name: 'clientlibs/clientlib-header/js/treeshaking.bundle.js'
         }
