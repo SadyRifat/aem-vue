@@ -1,5 +1,5 @@
 import LoginTemplate from "./template";
-import AppStore from "../../store";
+import AppStore from "../../store/index";
 const { ref, defineComponent } = Vue;
 
 const Login = defineComponent({
@@ -15,7 +15,7 @@ const Login = defineComponent({
         const doLogin = async () => {
             console.log("Email: " + email.value);
             console.log("Password: " + password.value);
-            AppStore.dispatch('Counter/incrementCounter');
+            AppStore.dispatch('incrementCounter');
             // Update the message
             message.value = "Form Submitted";
         };

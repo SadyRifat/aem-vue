@@ -1,11 +1,14 @@
-import Counter from "./module/counter"
-
-const { createStore } = Vuex;
+const {createStore} = Vuex;
+import state from './module/state'
+import * as getters from './module/getter'
+import * as mutations from './module/mutation'
+import * as actions from './module/action'
 
 const AppStore = createStore({
-    modules: {
-        Counter
-    }
+    state,
+    getters,
+    mutations,
+    actions
 });
 
 export default AppStore;
