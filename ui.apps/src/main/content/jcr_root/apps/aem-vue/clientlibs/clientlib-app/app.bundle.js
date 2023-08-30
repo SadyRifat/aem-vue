@@ -823,65 +823,72 @@ try {
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
+// NAMESPACE OBJECT: ./src/main/aem-vue/store/module/getter.js
+var getter_namespaceObject = {};
+__webpack_require__.r(getter_namespaceObject);
+__webpack_require__.d(getter_namespaceObject, "getCount", function() { return getCount; });
+
+// NAMESPACE OBJECT: ./src/main/aem-vue/store/module/mutation.js
+var mutation_namespaceObject = {};
+__webpack_require__.r(mutation_namespaceObject);
+__webpack_require__.d(mutation_namespaceObject, "INCREMENT", function() { return INCREMENT; });
+
+// NAMESPACE OBJECT: ./src/main/aem-vue/store/module/action.js
+var action_namespaceObject = {};
+__webpack_require__.r(action_namespaceObject);
+__webpack_require__.d(action_namespaceObject, "incrementCounter", function() { return incrementCounter; });
+
 // CONCATENATED MODULE: ./src/main/aem-vue/components/helloworld/template.js
 /* harmony default export */ var template = ({
-  template: "<div class=\"cmp-helloworld__item\">\n                    <p class=\"cmp-helloworld__item-label\">Model message:</p>\n                    <pre class=\"cmp-helloworld__item-output\" data-cmp-hook-helloworld=\"model\">Resource Path: {{ modelData.resourceType }}</pre>\n                    <pre class=\"cmp-helloworld__item-output\" data-cmp-hook-helloworld=\"model\">Current Page Path: {{ modelData.currentPagePath }}</pre>\n                    <div>State Counter {{count}}</div>\n                </div>",
+  template: "<div class=\"cmp-helloworld__item\">\n                    <p class=\"cmp-helloworld__item-label\">Model message:</p>\n                    <pre class=\"cmp-helloworld__item-output\" data-cmp-hook-helloworld=\"model\">Resource Path: {{ modelData.resourceType }}</pre>\n                    <pre class=\"cmp-helloworld__item-output\" data-cmp-hook-helloworld=\"model\">Current Page Path: {{ modelData.currentPagePath }}</pre>\n                    <div>State Counter {{countNow}}</div>\n                </div>",
   props: ['modelData']
 });
-// CONCATENATED MODULE: ./src/main/aem-vue/store/module/counter.js
-/* harmony default export */ var counter = ({
-  namespaced: true,
-  state: {
-    count: 0
-  },
-  mutations: {
-    increment: function increment(state) {
-      state.count++;
-    }
-  },
-  actions: {
-    incrementCounter: function incrementCounter(context) {
-      context.commit('increment');
-    }
-  },
-  getters: {
-    getCount: function getCount(state) {
-      return state.count;
-    }
-  }
+// CONCATENATED MODULE: ./src/main/aem-vue/store/module/state.js
+/* harmony default export */ var state = ({
+  count: 1
 });
+// CONCATENATED MODULE: ./src/main/aem-vue/store/module/getter.js
+var getCount = function getCount(state) {
+  return state.count;
+};
+// CONCATENATED MODULE: ./src/main/aem-vue/store/module/mutation.js
+var INCREMENT = function INCREMENT(state) {
+  state.count++;
+};
+// CONCATENATED MODULE: ./src/main/aem-vue/store/module/action.js
+var incrementCounter = function incrementCounter(_ref) {
+  var commit = _ref.commit;
+  commit('INCREMENT');
+};
 // CONCATENATED MODULE: ./src/main/aem-vue/store/index.js
-
 var _Vuex = Vuex,
   createStore = _Vuex.createStore;
+
+
+
+
 var AppStore = createStore({
-  modules: {
-    Counter: counter
-  }
+  state: state,
+  getters: getter_namespaceObject,
+  mutations: mutation_namespaceObject,
+  actions: action_namespaceObject
 });
 /* harmony default export */ var store = (AppStore);
 // CONCATENATED MODULE: ./src/main/aem-vue/components/helloworld/main.js
 
 
 var _Vue = Vue,
-  ref = _Vue.ref,
-  defineComponent = _Vue.defineComponent,
-  watch = _Vue.watch;
+  defineComponent = _Vue.defineComponent;
 /* harmony default export */ var main = (defineComponent({
   template: template.template,
   props: {
     modelData: String
   },
-  setup: function setup() {
-    var count = ref(store.getters['Counter/getCount']);
-    watch(function () {
-      return store.getters['Counter/getCount'];
-    }, function (newCount) {
-      count.value = newCount + 2;
-    });
-    return {
-      count: count
-    };
+  setup: function setup() {},
+  computed: {
+    countNow: function countNow() {
+      return store.getters.getCount;
+    }
   }
 }));
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/typeof.js
@@ -909,7 +916,7 @@ function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyri
 
 
 var main_Vue = Vue,
-  main_ref = main_Vue.ref,
+  ref = main_Vue.ref,
   main_defineComponent = main_Vue.defineComponent;
 var Login = main_defineComponent({
   template: login_template.template,
@@ -917,9 +924,9 @@ var Login = main_defineComponent({
     modelData: Object
   },
   setup: function setup() {
-    var email = main_ref('');
-    var password = main_ref('');
-    var message = main_ref('');
+    var email = ref('');
+    var password = ref('');
+    var message = ref('');
     var doLogin = /*#__PURE__*/function () {
       var _ref = asyncToGenerator_default()( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
         return _regeneratorRuntime().wrap(function _callee$(_context) {
@@ -927,7 +934,7 @@ var Login = main_defineComponent({
             case 0:
               console.log("Email: " + email.value);
               console.log("Password: " + password.value);
-              store.dispatch('Counter/incrementCounter');
+              store.dispatch('incrementCounter');
               // Update the message
               message.value = "Form Submitted";
             case 4:
