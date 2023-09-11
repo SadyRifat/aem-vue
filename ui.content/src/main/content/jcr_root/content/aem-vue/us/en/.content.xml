@@ -2,14 +2,16 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        pageTitle="AEM Vue"
-        jcr:primaryType="cq:PageContent"
-        jcr:title="en"
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
+        cq:lastModified="{Date}2023-08-30T08:37:27.210Z"
+        cq:lastModifiedBy="admin"
+        cq:tags="[we-retail:season/winter,we-retail:season/spring]"
         cq:template="/conf/aem-vue/settings/wcm/templates/page-content"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="en"
         sling:resourceType="aem-vue/components/page"
-    >
+        pageTitle="AEM Vue">
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="aem-vue/components/container"
@@ -72,12 +74,85 @@
                                 width="4"/>
                         </cq:responsive>
                     </teaser_copy_1579324932>
+                    <experiencefragment
+                        jcr:created="{Date}2023-08-29T09:49:26.115Z"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-29T09:49:42.481Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aem-vue/components/experiencefragment"
+                        fragmentVariationPath="/content/experience-fragments/aem-vue/us/en/site/footer/master"/>
                     <helloworld
+                        jcr:lastModified="{Date}2023-08-29T05:35:42.249Z"
+                        jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="aem-vue/components/helloworld"
-                        text="lalala :)"/>
+                        text="lalala :)">
+                        <cardList jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                cardNumberValue="sdfvser"/>
+                            <item1 jcr:primaryType="nt:unstructured"/>
+                        </cardList>
+                    </helloworld>
+                    <separator_1909617790
+                        jcr:created="{Date}2023-08-28T10:48:02.969Z"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-28T10:48:02.969Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aem-vue/components/separator"/>
+                    <login
+                        jcr:created="{Date}2023-08-23T13:39:57.746Z"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-23T13:40:19.691Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aem-vue/components/login"
+                        email="Enter Email"
+                        password="Enter Password"
+                        submit="Submit"/>
+                    <separator
+                        jcr:created="{Date}2023-08-23T13:48:30.916Z"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-23T13:48:39.507Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aem-vue/components/separator"
+                        isDecorative="true"/>
+                    <login_2001522678
+                        jcr:created="{Date}2023-08-23T13:47:55.426Z"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-23T13:48:15.940Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aem-vue/components/login"
+                        email="Email"
+                        password="Password"
+                        submit="Submit 2"/>
+                    <container
+                        jcr:created="{Date}2023-08-30T08:37:16.948Z"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-30T08:37:16.948Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aem-vue/components/container"/>
+                    <container_437072431
+                        jcr:created="{Date}2023-08-30T08:37:27.208Z"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-30T08:37:27.208Z"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aem-vue/components/container"/>
                 </container>
             </container>
         </root>
+        <cq:featuredimage
+            jcr:lastModified="{Date}2023-08-29T09:54:45.843Z"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="core/wcm/components/image/v3/image"
+            altValueFromDAM="false"/>
     </jcr:content>
+    <test/>
 </jcr:root>

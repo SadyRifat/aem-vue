@@ -9,9 +9,12 @@ const LoginTemplate = {
                         <br>
                         <button type="submit">{{ modelData.submitLabel }}</button>
                     </form>
+                    <form @submit.prevent="resetState">
+                        <button type="submit">Reset</button>
+                    </form>
                     <p v-if="message">{{ message }}</p>
                 </div>`,
     props: ['modelData']
-}
+};
 
 export default LoginTemplate;

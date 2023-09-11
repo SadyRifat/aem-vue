@@ -120,13 +120,6 @@
             <version>${project.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.aem.vue</groupId>
-            <artifactId>aem-vue.ui.frontend</artifactId>
-            <version>${project.version}</version>
-            <type>zip</type>
-        </dependency>
-
 
         <dependency>
             <groupId>com.aem.vue</groupId>
