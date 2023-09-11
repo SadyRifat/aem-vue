@@ -2,8 +2,8 @@
 
 const path = require('path');
 // Add Tailwind CSS and PostCSS configuration
-const tailwindcss = require('tailwindcss');
-const autoprefixer = require('autoprefixer');
+// const tailwindcss = require('tailwindcss');
+// const autoprefixer = require('autoprefixer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TSConfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -55,15 +55,6 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             url: false
-                        }
-                    },
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            plugins: [
-                                tailwindcss,
-                                autoprefixer,
-                            ]
                         }
                     },
                     {

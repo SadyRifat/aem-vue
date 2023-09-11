@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './scheme';
+@import './scss/input';
+@import './scss/helloworld.scss';
+//@import './scss/columncontrol.scss';
+@import './scss/input.scss';

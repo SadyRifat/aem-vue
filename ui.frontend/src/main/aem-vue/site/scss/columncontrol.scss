@@ -1,0 +1,102 @@
+.column-control-wrapper{
+  &>div{
+    &[class*="bg-"]{
+      padding: var(--hbk-spacing-container-desktop);
+    }
+  }
+}
+
+.container{
+  &--frameWidth,
+  &--fullWidth{
+    @include desktop-up{
+        @apply w-auto pl-0 pr-0;
+        margin-left: calc((100vw - var(--hbk-content-max-width))*-1/2);
+        margin-right: calc((100vw - var(--hbk-content-max-width))*-1/2);
+    }
+  }
+
+  &--fullWidth{
+    padding-left: 0!important;
+    padding-right: 0!important;
+    .container{
+      max-width: 100% !important;
+    }
+  }
+
+  @media only screen and (min-width: 1680px){
+    &--frameWidth {
+      margin-left: calc((var(--hbk-layout-container-frame-width) - var(--hbk-content-max-width))*-1);
+      margin-right: calc((var(--hbk-layout-container-frame-width) - var(--hbk-content-max-width))*-1);
+    }
+  }
+}
+
+.gutter-gap {
+  @include desktop-up{
+    @apply gap-6;
+  }
+  @include desktop-down{
+    @apply gap-6;
+  }
+}
+
+@include tablet-up{
+  .col-divider{
+    &>div[class*="col-span-"]{
+      &:not(:last-child){
+        @apply relative;
+        @apply
+        after:content-['']
+        after:border-r 
+        after:border-solid 
+        after:border-[var(--background-base-2)]
+        after:rounded-[2px]
+        after:absolute
+        after:h-full
+        after:top-0
+        after:right-[-12px];
+      }
+    }
+  }
+}
+
+.mobile-no-break{
+  @include tablet-down{
+    &.col-divider{
+      &>div[class*="col-span-"]{
+        &:not(:last-child){
+          @apply relative;
+          @apply
+          after:content-['']
+          after:border-r 
+          after:border-solid 
+          after:border-[var(--background-base-2)]
+          after:rounded-[2px]
+          after:absolute
+          after:h-full
+          after:top-0
+          after:right-[-12px];
+        }
+      }
+    }
+  }
+}
+
+/* column-control cmp css */
+.column-reverse{
+  .grid{
+    @apply sm-only:flex sm-only:flex-col-reverse;
+  }
+}
+
+.container .container{
+  @apply p-0;
+}
+
+// column-control margin-bottom in mobile 
+@include tablet-down{
+  .grid{
+    margin-bottom: var(--hbk-spacing-columncontrol-default);
+  }
+}

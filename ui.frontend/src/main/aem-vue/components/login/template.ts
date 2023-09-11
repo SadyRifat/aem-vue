@@ -1,8 +1,10 @@
 const LoginTemplate = {
     template : `<div>
                     <form @submit.prevent="doLogin">
-                        <label for="email">{{ modelData.email }}</label>
-                        <input type="email" v-model="email" required>
+                        <div class="flex flex-col bg-[color:var(--dark-blue)]">
+                            <label class="shadow-lg shadow-cyan-500/50" for="email">{{ modelData.email }}</label>
+                            <input type="email" v-model="email" required>
+                        </div>
                         <br>
                         <label for="password">{{ modelData.password }}</label>
                         <input type="password" v-model="password" required>

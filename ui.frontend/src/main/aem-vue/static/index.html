@@ -13,38 +13,48 @@
 </head>
 <body class="page basicpage" id="app">
 <div class="root container responsivegrid">
-    <div class="cmp-container">
-        <main class="container responsivegrid">
+    <div class="columncontrol">
+        <div class="container">
+        <div class="grid grid-cols-12 gutter-gap">
+        <div class="col-span-full">
+
             <div class="cmp-container">
-                <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
-                    <div class="title aem-GridColumn aem-GridColumn--default--12">
-                        <div class="cmp-title">
-                            <h1 class="cmp-title__text">Welcome to AEM Vue!</h1>
+                <main class="container responsivegrid">
+                    <div class="cmp-container">
+                        <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+                            <div class="title aem-GridColumn aem-GridColumn--default--12">
+                                <div class="cmp-title">
+                                    <h1 class="cmp-title__text">Welcome to AEM Vue!</h1>
+                                </div>
+                            </div>
+                            <div class="container responsivegrid aem-GridColumn aem-GridColumn--default--12">
+                                <div class="cmp-container">
+                                    <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+                                        <div class="hello-world aem-GridColumn aem-GridColumn--default--12">
+                                            <hello-world :model-data="{ &quot;resourceType&quot;: &quot;aem-vue/components/helloworld&quot;, &quot;currentPagePath&quot;: &quot;/content/aem-vue/us/en&quot; }"></hello-world>
+                                        </div>
+                                    </div>
+                                    <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+                                        <div class="hello-world aem-GridColumn aem-GridColumn--default--12">
+                                            <login :model-data="{ &quot;email&quot;: &quot;Enter Email&quot;, &quot;password&quot;: &quot;Enter Password&quot;, &quot;submitLabel&quot;: &quot;Submit&quot; }"></login>
+                                        </div>
+                                    </div>
+                                    <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+                                        <div class="hello-world aem-GridColumn aem-GridColumn--default--12">
+                                            <login :model-data="{ &quot;email&quot;: &quot;Enter Email&quot;, &quot;password&quot;: &quot;Enter Password&quot;, &quot;submitLabel&quot;: &quot;Submit&quot; }"></login>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="container responsivegrid aem-GridColumn aem-GridColumn--default--12">
-                        <div class="cmp-container">
-                            <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
-                                <div class="hello-world aem-GridColumn aem-GridColumn--default--12">
-                                    <hello-world :model-data="{ &quot;resourceType&quot;: &quot;aem-vue/components/helloworld&quot;, &quot;currentPagePath&quot;: &quot;/content/aem-vue/us/en&quot; }"></hello-world>
-                                </div>
-                            </div>
-                            <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
-                                <div class="hello-world aem-GridColumn aem-GridColumn--default--12">
-                                    <login :model-data="{ &quot;email&quot;: &quot;Enter Email&quot;, &quot;password&quot;: &quot;Enter Password&quot;, &quot;submitLabel&quot;: &quot;Submit&quot; }"></login>
-                                </div>
-                            </div>
-                            <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
-                                <div class="hello-world aem-GridColumn aem-GridColumn--default--12">
-                                    <login :model-data="{ &quot;email&quot;: &quot;Enter Email&quot;, &quot;password&quot;: &quot;Enter Password&quot;, &quot;submitLabel&quot;: &quot;Submit&quot; }"></login>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </main>
             </div>
-        </main>
-    </div>
+
+        </div>
+        </div>
+        </div>
+        </div>
 </div>
 <script type="text/javascript" src="/etc.clientlibs/aem-vue/clientlibs/clientlib-site.js"></script>
 </body>

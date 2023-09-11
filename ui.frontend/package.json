@@ -16,6 +16,9 @@
     "sync": "aemsync -d -p ../ui.apps/src/main/content",
     "chokidar": "chokidar -c \"clientlib\" ./dist",
     "aemsyncro": "aemsync -w ../ui.apps/src/main/content",
+    "watch:scss": "sass --watch ./src/main/aem-vue/site/styles.scss ./src/main/aem-vue/site/output.css",
+    "tailwind": "npx tailwindcss -i ./src/main/aem-vue/site/output.css -o ./src/main/aem-vue/site/main.scss --watch",
+    "watch:fe": "npm-run-all --parallel watch:scss tailwind",
     "watch": "npm-run-all --parallel start chokidar aemsyncro"
   },
   "devDependencies": {
@@ -27,6 +30,7 @@
     "acorn": "^6.1.0",
     "aem-clientlib-generator": "^1.8.0",
     "aemsync": "^4.0.1",
+    "autoprefixer": "^10.4.15",
     "browserslist": "^4.2.1",
     "chokidar-cli": "^3.0.0",
     "clean-webpack-plugin": "^3.0.0",
@@ -38,11 +42,13 @@
     "glob-import-loader": "^1.2.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.4.5",
+    "postcss": "^8.4.29",
     "postcss-loader": "^3.0.0",
     "sass": "^1.45.0",
     "sass-loader": "^12.4.0",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.14.1",
+    "tailwindcss": "^3.3.3",
     "terser-webpack-plugin": "^5.2.5",
     "ts-loader": "^9.2.6",
     "tsconfig-paths-webpack-plugin": "^3.2.0",
@@ -53,11 +59,9 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "autoprefixer": "^9.8.8",
     "axios": "^1.5.0",
     "cssnano": "^4.1.11",
-    "postcss": "^7.0.39",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
+    "npm-run-all": "^4.1.5"
   },
   "browserslist": [
     "last 2 version",
