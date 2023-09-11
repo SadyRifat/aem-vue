@@ -2,8 +2,15 @@
   border: 1px solid;
   padding: 10px;
   box-shadow: 5px 10px #888888;
+  background-color: green;
 }
+.abc{
+  @apply text-4xl;
 
+}
+.cmp-title{
+  @apply bg-yellow-800;
+}
 .boxContainer {
   display: flex;
   flex-direction: column;

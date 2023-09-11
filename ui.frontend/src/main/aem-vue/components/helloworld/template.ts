@@ -1,6 +1,7 @@
 export default {
-    template: `<div class="cmp-helloworld__item">
-                    <p class="cmp-helloworld__item-label">Model message:</p>
+    template: `<div class="cmp-helloworld__item test-class ">
+                    <p class="cmp-helloworld__item-label text-4xl">Model message:</p>
+                    <p class="cmp-title">hello</p>
                     <pre class="cmp-helloworld__item-output" data-cmp-hook-helloworld="model">Resource Path: {{ modelData.resourceType }}</pre>
                     <pre class="cmp-helloworld__item-output" data-cmp-hook-helloworld="model">Current Page Path: {{ modelData.currentPagePath }}</pre>
                     <div class="boxContainer">State Counter {{countNow}}</div>
