@@ -1,0 +1,7 @@
+@charset 'UTF-8';
+
+// Z-Indexes
+$z-indices-body: searchCmp, navigationCmp, headerCmp;
+$z-indices-navigation: navigation, lev0navigation, menubutton, menubuttonicon, menubuttonicontop, menubuttoniconline !default;
+$z-indices-languagenavigation: languagenavigation;
+$z-indices-search: searchFooter, search, searchHeader;

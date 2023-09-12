@@ -1,0 +1,20 @@
+@mixin hover-border-animation() {
+    position: relative;
+    
+    &::after{
+        position: absolute;
+        content: '';
+        bottom: calc(-1 * var(--hbk-color-accordion-tile-height));
+        height: var(--hbk-color-accordion-tile-height);
+        width: 0;
+        background: var(--hbk-color-accordion-bg-expanded);
+        left: 0;
+        transition: width var(--hbk-color-accordion-transition-duration) ease-in-out;
+    }
+
+    &:hover {
+        &::after{
+                width: 100%;
+            }
+        }
+}

@@ -1,0 +1,34 @@
+/* doc
+---
+title: Component Normalize / item Normalize
+name: font
+category: mixins
+---
+Use this mixing to regular AEM wrappers and normalization.
+*/
+
+@mixin component-normalize() {
+    // Since 6.3 normalize float behavior of components wrappers.
+    @include item-normalize();
+    width: 100%;
+    display: flex;
+}
+
+@mixin item-normalize() {
+    // general normalize
+    position: relative;
+    zoom: 1;
+
+    &::before,
+    &::after {
+        content: ' ';
+        display: block;
+        height: 0;
+        width: 0;
+        overflow: hidden;
+    }
+
+    &::after {
+        clear: both;
+    }
+}

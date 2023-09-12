@@ -1,0 +1,19 @@
+@mixin button-reset() {
+  overflow: visible;
+  width: auto;
+  padding: 0;
+  border: none;
+  margin: 0;
+  appearance: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  line-height: normal;
+
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+}

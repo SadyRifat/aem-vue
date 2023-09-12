@@ -1,0 +1,3 @@
+@function nn-z-negative-index($element, $list) {
+    @return -1*nn-z-index($element, $list);
+}

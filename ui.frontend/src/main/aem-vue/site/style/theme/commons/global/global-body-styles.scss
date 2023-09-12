@@ -1,0 +1,74 @@
+html {
+  direction: ltr;
+  scroll-behavior: smooth;
+}
+
+@include tablet-up {
+  :root {
+    --noScroll-padding: 0;
+  }
+}
+
+body {
+  font-display: swap;
+  width: 100vw; /* stylelint-disable-line */
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-y: visible;
+  background-color: var(--hbk-color-body-default-bg);
+  color: var(--hbk-color-body-default-text);
+  font-family: var(--hbk-font-family-basic-secondary);
+  text-align: left;
+  letter-spacing: 0;
+  font-weight: var(--hbk-font-weight-body);
+  font-size: var(--hbk-font-size-body);
+  line-height: var(--hbk-line-height-24);
+}
+
+body.noScroll {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+i,
+input,
+p,
+blockquote,
+ul,
+ol {
+  font: inherit;
+}
+
+i{
+  font-style: italic;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul{
+  list-style-type: none;
+}
+
+html:not(.aem-AuthorLayer-Preview),
+html:not(.aem-Author--hidePlaceholder) {
+  body .root.container.responsivegrid > .cmp-container,
+  body .root.wrapper > .cmp-container {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 150px);
+    @include tablet-down {
+      min-height: calc(100vh - 110px);
+    }
+    > .responsivegrid {
+      flex: 1;
+    }
+  }
+}   

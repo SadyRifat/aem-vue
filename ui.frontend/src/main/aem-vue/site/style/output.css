@@ -1,649 +1,7 @@
 @charset "UTF-8";
-
-/*
-! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com
-*/
-
-/*
-1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
-2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
-*/
-
-*,
-::before,
-::after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  /* 1 */
-  border-width: 0;
-  /* 2 */
-  border-style: solid;
-  /* 2 */
-  border-color: #e5e7eb;
-  /* 2 */
-}
-
-::before,
-::after {
-  --tw-content: '';
-}
-
-/*
-1. Use a consistent sensible line-height in all browsers.
-2. Prevent adjustments of font size after orientation changes in iOS.
-3. Use a more readable tab size.
-4. Use the user's configured `sans` font-family by default.
-5. Use the user's configured `sans` font-feature-settings by default.
-6. Use the user's configured `sans` font-variation-settings by default.
-*/
-
-html {
-  line-height: 1.5;
-  /* 1 */
-  -webkit-text-size-adjust: 100%;
-  /* 2 */
-  -moz-tab-size: 4;
-  /* 3 */
-  -o-tab-size: 4;
-     tab-size: 4;
-  /* 3 */
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  /* 4 */
-  -webkit-font-feature-settings: normal;
-          font-feature-settings: normal;
-  /* 5 */
-  font-variation-settings: normal;
-  /* 6 */
-}
-
-/*
-1. Remove the margin in all browsers.
-2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
-*/
-
-body {
-  margin: 0;
-  /* 1 */
-  line-height: inherit;
-  /* 2 */
-}
-
-/*
-1. Add the correct height in Firefox.
-2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
-3. Ensure horizontal rules are visible by default.
-*/
-
-hr {
-  height: 0;
-  /* 1 */
-  color: inherit;
-  /* 2 */
-  border-top-width: 1px;
-  /* 3 */
-}
-
-/*
-Add the correct text decoration in Chrome, Edge, and Safari.
-*/
-
-abbr:where([title]) {
-  -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
-}
-
-/*
-Remove the default font size and weight for headings.
-*/
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: inherit;
-  font-weight: inherit;
-}
-
-/*
-Reset links to optimize for opt-in styling instead of opt-out.
-*/
-
-a {
-  color: inherit;
-  text-decoration: inherit;
-}
-
-/*
-Add the correct font weight in Edge and Safari.
-*/
-
-b,
-strong {
-  font-weight: bolder;
-}
-
-/*
-1. Use the user's configured `mono` font family by default.
-2. Correct the odd `em` font sizing in all browsers.
-*/
-
-code,
-kbd,
-samp,
-pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  /* 1 */
-  font-size: 1em;
-  /* 2 */
-}
-
-/*
-Add the correct font size in all browsers.
-*/
-
-small {
-  font-size: 80%;
-}
-
-/*
-Prevent `sub` and `sup` elements from affecting the line height in all browsers.
-*/
-
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
-}
-
-/*
-1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
-2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
-3. Remove gaps between table borders by default.
-*/
-
-table {
-  text-indent: 0;
-  /* 1 */
-  border-color: inherit;
-  /* 2 */
-  border-collapse: collapse;
-  /* 3 */
-}
-
-/*
-1. Change the font styles in all browsers.
-2. Remove the margin in Firefox and Safari.
-3. Remove default padding in all browsers.
-*/
-
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit;
-  /* 1 */
-  -webkit-font-feature-settings: inherit;
-          font-feature-settings: inherit;
-  /* 1 */
-  font-variation-settings: inherit;
-  /* 1 */
-  font-size: 100%;
-  /* 1 */
-  font-weight: inherit;
-  /* 1 */
-  line-height: inherit;
-  /* 1 */
-  color: inherit;
-  /* 1 */
-  margin: 0;
-  /* 2 */
-  padding: 0;
-  /* 3 */
-}
-
-/*
-Remove the inheritance of text transform in Edge and Firefox.
-*/
-
-button,
-select {
-  text-transform: none;
-}
-
-/*
-1. Correct the inability to style clickable types in iOS and Safari.
-2. Remove default button styles.
-*/
-
-button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
-  -webkit-appearance: button;
-  /* 1 */
-  background-color: transparent;
-  /* 2 */
-  background-image: none;
-  /* 2 */
-}
-
-/*
-Use the modern Firefox focus style for all focusable elements.
-*/
-
-:-moz-focusring {
-  outline: auto;
-}
-
-/*
-Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
-*/
-
-:-moz-ui-invalid {
-  box-shadow: none;
-}
-
-/*
-Add the correct vertical alignment in Chrome and Firefox.
-*/
-
-progress {
-  vertical-align: baseline;
-}
-
-/*
-Correct the cursor style of increment and decrement buttons in Safari.
-*/
-
-::-webkit-inner-spin-button,
-::-webkit-outer-spin-button {
-  height: auto;
-}
-
-/*
-1. Correct the odd appearance in Chrome and Safari.
-2. Correct the outline style in Safari.
-*/
-
-[type='search'] {
-  -webkit-appearance: textfield;
-  /* 1 */
-  outline-offset: -2px;
-  /* 2 */
-}
-
-/*
-Remove the inner padding in Chrome and Safari on macOS.
-*/
-
-::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-/*
-1. Correct the inability to style clickable types in iOS and Safari.
-2. Change font properties to `inherit` in Safari.
-*/
-
-::-webkit-file-upload-button {
-  -webkit-appearance: button;
-  /* 1 */
-  font: inherit;
-  /* 2 */
-}
-
-/*
-Add the correct display in Chrome and Safari.
-*/
-
-summary {
-  display: list-item;
-}
-
-/*
-Removes the default spacing and border for appropriate elements.
-*/
-
-blockquote,
-dl,
-dd,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-hr,
-figure,
-p,
-pre {
-  margin: 0;
-}
-
-fieldset {
-  margin: 0;
-  padding: 0;
-}
-
-legend {
-  padding: 0;
-}
-
-ol,
-ul,
-menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-/*
-Reset default styling for dialogs.
-*/
-
-dialog {
-  padding: 0;
-}
-
-/*
-Prevent resizing textareas horizontally by default.
-*/
-
-textarea {
-  resize: vertical;
-}
-
-/*
-1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
-2. Set the default placeholder color to the user's configured gray 400 color.
-*/
-
-input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-  opacity: 1;
-  /* 1 */
-  color: #9ca3af;
-  /* 2 */
-}
-
-input::-moz-placeholder, textarea::-moz-placeholder {
-  opacity: 1;
-  /* 1 */
-  color: #9ca3af;
-  /* 2 */
-}
-
-input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-  opacity: 1;
-  /* 1 */
-  color: #9ca3af;
-  /* 2 */
-}
-
-input::-ms-input-placeholder, textarea::-ms-input-placeholder {
-  opacity: 1;
-  /* 1 */
-  color: #9ca3af;
-  /* 2 */
-}
-
-input::placeholder,
-textarea::placeholder {
-  opacity: 1;
-  /* 1 */
-  color: #9ca3af;
-  /* 2 */
-}
-
-/*
-Set the default cursor for buttons.
-*/
-
-button,
-[role="button"] {
-  cursor: pointer;
-}
-
-/*
-Make sure disabled buttons don't get the pointer cursor.
-*/
-
-:disabled {
-  cursor: default;
-}
-
-/*
-1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
-2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
-   This can trigger a poorly considered lint error in some tools but is included by design.
-*/
-
-img,
-svg,
-video,
-canvas,
-audio,
-iframe,
-embed,
-object {
-  display: block;
-  /* 1 */
-  vertical-align: middle;
-  /* 2 */
-}
-
-/*
-Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
-*/
-
-img,
-video {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Make elements with the HTML hidden attribute stay hidden by default */
-
-[hidden] {
-  display: none;
-}
-
-*, ::before, ::after{
-  --tw-border-spacing-x: 0;
-  --tw-border-spacing-y: 0;
-  --tw-translate-x: 0;
-  --tw-translate-y: 0;
-  --tw-rotate: 0;
-  --tw-skew-x: 0;
-  --tw-skew-y: 0;
-  --tw-scale-x: 1;
-  --tw-scale-y: 1;
-  --tw-pan-x:  ;
-  --tw-pan-y:  ;
-  --tw-pinch-zoom:  ;
-  --tw-scroll-snap-strictness: proximity;
-  --tw-gradient-from-position:  ;
-  --tw-gradient-via-position:  ;
-  --tw-gradient-to-position:  ;
-  --tw-ordinal:  ;
-  --tw-slashed-zero:  ;
-  --tw-numeric-figure:  ;
-  --tw-numeric-spacing:  ;
-  --tw-numeric-fraction:  ;
-  --tw-ring-inset:  ;
-  --tw-ring-offset-width: 0px;
-  --tw-ring-offset-color: #fff;
-  --tw-ring-color: rgb(59 130 246 / 0.5);
-  --tw-ring-offset-shadow: 0 0 #0000;
-  --tw-ring-shadow: 0 0 #0000;
-  --tw-shadow: 0 0 #0000;
-  --tw-shadow-colored: 0 0 #0000;
-  --tw-blur:  ;
-  --tw-brightness:  ;
-  --tw-contrast:  ;
-  --tw-grayscale:  ;
-  --tw-hue-rotate:  ;
-  --tw-invert:  ;
-  --tw-saturate:  ;
-  --tw-sepia:  ;
-  --tw-drop-shadow:  ;
-  --tw-backdrop-blur:  ;
-  --tw-backdrop-brightness:  ;
-  --tw-backdrop-contrast:  ;
-  --tw-backdrop-grayscale:  ;
-  --tw-backdrop-hue-rotate:  ;
-  --tw-backdrop-invert:  ;
-  --tw-backdrop-opacity:  ;
-  --tw-backdrop-saturate:  ;
-  --tw-backdrop-sepia:  ;
-}
-
-::-ms-backdrop{
-  --tw-border-spacing-x: 0;
-  --tw-border-spacing-y: 0;
-  --tw-translate-x: 0;
-  --tw-translate-y: 0;
-  --tw-rotate: 0;
-  --tw-skew-x: 0;
-  --tw-skew-y: 0;
-  --tw-scale-x: 1;
-  --tw-scale-y: 1;
-  --tw-pan-x:  ;
-  --tw-pan-y:  ;
-  --tw-pinch-zoom:  ;
-  --tw-scroll-snap-strictness: proximity;
-  --tw-gradient-from-position:  ;
-  --tw-gradient-via-position:  ;
-  --tw-gradient-to-position:  ;
-  --tw-ordinal:  ;
-  --tw-slashed-zero:  ;
-  --tw-numeric-figure:  ;
-  --tw-numeric-spacing:  ;
-  --tw-numeric-fraction:  ;
-  --tw-ring-inset:  ;
-  --tw-ring-offset-width: 0px;
-  --tw-ring-offset-color: #fff;
-  --tw-ring-color: rgb(59 130 246 / 0.5);
-  --tw-ring-offset-shadow: 0 0 #0000;
-  --tw-ring-shadow: 0 0 #0000;
-  --tw-shadow: 0 0 #0000;
-  --tw-shadow-colored: 0 0 #0000;
-  --tw-blur:  ;
-  --tw-brightness:  ;
-  --tw-contrast:  ;
-  --tw-grayscale:  ;
-  --tw-hue-rotate:  ;
-  --tw-invert:  ;
-  --tw-saturate:  ;
-  --tw-sepia:  ;
-  --tw-drop-shadow:  ;
-  --tw-backdrop-blur:  ;
-  --tw-backdrop-brightness:  ;
-  --tw-backdrop-contrast:  ;
-  --tw-backdrop-grayscale:  ;
-  --tw-backdrop-hue-rotate:  ;
-  --tw-backdrop-invert:  ;
-  --tw-backdrop-opacity:  ;
-  --tw-backdrop-saturate:  ;
-  --tw-backdrop-sepia:  ;
-}
-
-::backdrop{
-  --tw-border-spacing-x: 0;
-  --tw-border-spacing-y: 0;
-  --tw-translate-x: 0;
-  --tw-translate-y: 0;
-  --tw-rotate: 0;
-  --tw-skew-x: 0;
-  --tw-skew-y: 0;
-  --tw-scale-x: 1;
-  --tw-scale-y: 1;
-  --tw-pan-x:  ;
-  --tw-pan-y:  ;
-  --tw-pinch-zoom:  ;
-  --tw-scroll-snap-strictness: proximity;
-  --tw-gradient-from-position:  ;
-  --tw-gradient-via-position:  ;
-  --tw-gradient-to-position:  ;
-  --tw-ordinal:  ;
-  --tw-slashed-zero:  ;
-  --tw-numeric-figure:  ;
-  --tw-numeric-spacing:  ;
-  --tw-numeric-fraction:  ;
-  --tw-ring-inset:  ;
-  --tw-ring-offset-width: 0px;
-  --tw-ring-offset-color: #fff;
-  --tw-ring-color: rgb(59 130 246 / 0.5);
-  --tw-ring-offset-shadow: 0 0 #0000;
-  --tw-ring-shadow: 0 0 #0000;
-  --tw-shadow: 0 0 #0000;
-  --tw-shadow-colored: 0 0 #0000;
-  --tw-blur:  ;
-  --tw-brightness:  ;
-  --tw-contrast:  ;
-  --tw-grayscale:  ;
-  --tw-hue-rotate:  ;
-  --tw-invert:  ;
-  --tw-saturate:  ;
-  --tw-sepia:  ;
-  --tw-drop-shadow:  ;
-  --tw-backdrop-blur:  ;
-  --tw-backdrop-brightness:  ;
-  --tw-backdrop-contrast:  ;
-  --tw-backdrop-grayscale:  ;
-  --tw-backdrop-hue-rotate:  ;
-  --tw-backdrop-invert:  ;
-  --tw-backdrop-opacity:  ;
-  --tw-backdrop-saturate:  ;
-  --tw-backdrop-sepia:  ;
-}
-
-.flex{
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.flex-col{
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.bg-\[color\:var\(--dark-blue\)\]{
-  background-color: var(--dark-blue);
-}
-
-.text-4xl{
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
-.shadow-lg{
-  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
-  -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-          box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-cyan-500\/50{
-  --tw-shadow-color: rgb(6 182 212 / 0.5);
-  --tw-shadow: var(--tw-shadow-colored);
-}
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 :root {
   --hbk-site-max-width: 1680px;
   --hbk-content-max-width: 1200px;
@@ -1127,7 +485,6 @@ abstract/extends/utils/_clearfix version, which adds less code to css
 ---
 http://nicolasgallagher.com/micro-clearfinn-hack/
 */
-
 /* doc
 ---
 title: Component Normalize / item Normalize
@@ -1136,11 +493,8 @@ category: mixins
 ---
 Use this mixing to regular AEM wrappers and normalization.
 */
-
 /* stylelint-disable max-nesting-depth */
-
 /* stylelint-disable media-feature-name-no-vendor-prefix */
-
 /* doc
 ---
 title: Font
@@ -1167,7 +521,6 @@ Documentation:
 /abstract/functions/nn-px-to-unitless
 /abstract/mixins/font-icon
 */
-
 /* doc
 ---
 title: Visibility
@@ -1194,7 +547,6 @@ Mixin to add visibility to control to elements
 }
 ```
 */
-
 /*
 lt0 = (default) 1 column at a 100%
 lt1 = 2 columns (50%, 50%)
@@ -1206,16 +558,12 @@ lt5 = 4 columns (25%, 25%, 25%, 25%)
 ## Parameters
 @parameter $layout-type = lt0 | lt1 | lt2 | lt3 | lt4 | lt5
 */
-
 /* stylelint-disable */
-
 /* Box sizing rules */
-
 *,
 *::before,
 *::after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *:focus {
@@ -1227,7 +575,6 @@ html {
 }
 
 /* Set core body defaults */
-
 body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
@@ -1335,17 +682,14 @@ video {
 }
 
 /* Remove default padding */
-
 ul[class],
 ol[class] {
   list-style: none;
 }
 
 /* A elements that don't have a class get default styles */
-
 a:not([class]) {
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
 }
 
 a,
@@ -1357,20 +701,17 @@ a:active {
 }
 
 /* Make images easier to work with */
-
 img {
   max-width: 100%;
   display: block;
 }
 
 /* Natural flow and rhythm in articles by default */
-
 article > * + * {
   margin-top: 1em;
 }
 
 /* Inherit fonts for inputs and buttons */
-
 input,
 button,
 textarea,
@@ -1383,21 +724,15 @@ pre {
 }
 
 /* Remove all animations and transitions for people that prefer not to see them */
-
 @media (prefers-reduced-motion: reduce) {
   * {
-    -webkit-animation-duration: 0.01ms !important;
-            animation-duration: 0.01ms !important;
-    -webkit-animation-iteration-count: 1 !important;
-            animation-iteration-count: 1 !important;
-    -webkit-transition-duration: 0.01ms !important;
-            transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
 }
-
 /* HTML5 display-role reset for older browsers */
-
 article,
 aside,
 details,
@@ -1445,154 +780,72 @@ sub {
 
 @font-face {
   font-family: "Montserrat";
-
   font-style: light;
-
   font-weight: 300;
-
-  src: url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-300.eot");
-
-  /* IE9 Compat Modes */
-
-  src: local(""), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-300.eot?#iefix") format("embedded-opentype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-300.woff2") format("woff2"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-300.woff") format("woff"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-300.ttf") format("truetype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-300.svg#Montserrat") format("svg");
-
-  /* Legacy iOS */
+  src: url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-300.eot"); /* IE9 Compat Modes */
+  src: local(""), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-300.eot?#iefix") format("embedded-opentype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-300.woff2") format("woff2"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-300.woff") format("woff"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-300.ttf") format("truetype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-300.svg#Montserrat") format("svg"); /* Legacy iOS */
 }
-
 @font-face {
   font-family: "Montserrat";
-
   font-style: semibold;
-
   font-weight: 500;
-
-  src: url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-500.eot");
-
-  /* IE9 Compat Modes */
-
-  src: local(""), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-500.eot?#iefix") format("embedded-opentype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-500.woff2") format("woff2"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-500.woff") format("woff"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-500.ttf") format("truetype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-500.svg#Montserrat") format("svg");
-
-  /* Legacy iOS */
+  src: url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-500.eot"); /* IE9 Compat Modes */
+  src: local(""), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-500.eot?#iefix") format("embedded-opentype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-500.woff2") format("woff2"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-500.woff") format("woff"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-500.ttf") format("truetype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-500.svg#Montserrat") format("svg"); /* Legacy iOS */
 }
-
 /* montserrat-600 - latin */
-
 @font-face {
   font-family: "Montserrat";
-
   font-style: normal;
-
   font-weight: 600;
-
-  src: url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-600.eot");
-
-  /* IE9 Compat Modes */
-
-  src: local(""), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-600.eot?#iefix") format("embedded-opentype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-600.woff2") format("woff2"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-600.woff") format("woff"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-600.ttf") format("truetype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-600.svg#Montserrat") format("svg");
-
-  /* Legacy iOS */
+  src: url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-600.eot"); /* IE9 Compat Modes */
+  src: local(""), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-600.eot?#iefix") format("embedded-opentype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-600.woff2") format("woff2"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-600.woff") format("woff"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-600.ttf") format("truetype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-600.svg#Montserrat") format("svg"); /* Legacy iOS */
 }
-
 /* montserrat-700 - latin */
-
 @font-face {
   font-family: "Montserrat";
-
   font-style: normal;
-
   font-weight: 700;
-
-  src: url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-700.eot");
-
-  /* IE9 Compat Modes */
-
-  src: local(""), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-700.eot?#iefix") format("embedded-opentype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-700.woff2") format("woff2"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-700.woff") format("woff"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-700.ttf") format("truetype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-700.svg#Montserrat") format("svg");
-
-  /* Legacy iOS */
+  src: url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-700.eot"); /* IE9 Compat Modes */
+  src: local(""), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-700.eot?#iefix") format("embedded-opentype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-700.woff2") format("woff2"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-700.woff") format("woff"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-700.ttf") format("truetype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/montserrat/montserrat-700.svg#Montserrat") format("svg"); /* Legacy iOS */
 }
-
 /* roboto-regular - latin */
-
 @font-face {
   font-family: "Roboto";
-
   font-style: normal;
-
   font-weight: 400;
-
-  src: url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-400.eot");
-
-  /* IE9 Compat Modes */
-
-  src: local(""), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-400.eot?#iefix") format("embedded-opentype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-400.woff2") format("woff2"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-400.woff") format("woff"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-400.ttf") format("truetype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-400.svg#Roboto") format("svg");
-
-  /* Legacy iOS */
+  src: url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-400.eot"); /* IE9 Compat Modes */
+  src: local(""), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-400.eot?#iefix") format("embedded-opentype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-400.woff2") format("woff2"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-400.woff") format("woff"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-400.ttf") format("truetype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-400.svg#Roboto") format("svg"); /* Legacy iOS */
 }
-
 /* roboto-regular - latin */
-
 @font-face {
   font-family: "Roboto";
-
   font-style: italic;
-
   font-weight: 400;
-
-  src: url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-italic.eot");
-
-  /* IE9 Compat Modes */
-
-  src: local(""), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-italic.eot?#iefix") format("embedded-opentype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-italic.woff2") format("woff2"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-italic.woff") format("woff"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-italic.ttf") format("truetype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-italic.svg#Roboto") format("svg");
-
-  /* Legacy iOS */
+  src: url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-italic.eot"); /* IE9 Compat Modes */
+  src: local(""), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-italic.eot?#iefix") format("embedded-opentype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-italic.woff2") format("woff2"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-italic.woff") format("woff"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-italic.ttf") format("truetype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-italic.svg#Roboto") format("svg"); /* Legacy iOS */
 }
-
 /* roboto-500 - latin */
-
 @font-face {
   font-family: "Roboto";
-
   font-weight: 500;
-
-  src: url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-500.eot");
-
-  /* IE9 Compat Modes */
-
-  src: local(""), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-500.eot?#iefix") format("embedded-opentype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-500.woff2") format("woff2"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-500.woff") format("woff"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-500.ttf") format("truetype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-500.svg#Roboto") format("svg");
-
-  /* Legacy iOS */
+  src: url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-500.eot"); /* IE9 Compat Modes */
+  src: local(""), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-500.eot?#iefix") format("embedded-opentype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-500.woff2") format("woff2"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-500.woff") format("woff"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-500.ttf") format("truetype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-500.svg#Roboto") format("svg"); /* Legacy iOS */
 }
-
 /* roboto-700 - latin */
-
 @font-face {
   font-family: "Roboto";
-
   font-style: normal;
-
   font-weight: 700;
-
-  src: url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-700.eot");
-
-  /* IE9 Compat Modes */
-
-  src: local(""), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-700.eot?#iefix") format("embedded-opentype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-700.woff2") format("woff2"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-700.woff") format("woff"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-700.ttf") format("truetype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-700.svg#Roboto") format("svg");
-
-  /* Legacy iOS */
+  src: url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-700.eot"); /* IE9 Compat Modes */
+  src: local(""), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-700.eot?#iefix") format("embedded-opentype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-700.woff2") format("woff2"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-700.woff") format("woff"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-700.ttf") format("truetype"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/roboto/roboto-700.svg#Roboto") format("svg"); /* Legacy iOS */
 }
-
 /* Material icons */
-
 @font-face {
   font-family: "Material Icons";
-
   font-style: normal;
-
   font-weight: 400;
-
   src: url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/Materialicons/MaterialIcons-Regular.woff2") format("woff2"), url("/etc.clientlibs/digitalxn/base/clientlibs/publish/resources/fonts/Materialicons/MaterialIcons-Regular.ttf") format("truetype");
 }
-
 .d-none {
   display: none;
 }
@@ -1612,9 +865,7 @@ sub {
   padding: 0;
   border: none;
   margin: 0;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   background: transparent;
   color: inherit;
   font: inherit;
@@ -1622,7 +873,6 @@ sub {
   -moz-osx-font-smoothing: inherit;
   line-height: normal;
 }
-
 .hbk-btn-reset::-moz-focus-inner {
   padding: 0;
   border: 0;
@@ -1632,7 +882,6 @@ sub {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
 .hbk-hide-scrollbars::-webkit-scrollbar {
   display: none;
 }
@@ -1646,16 +895,13 @@ sub {
   display: block;
   height: 16px;
   width: 16px;
-  -webkit-transition: var(--hbk-color-accordion-transition-duration) ease-in-out;
   transition: var(--hbk-color-accordion-transition-duration) ease-in-out;
   position: relative;
   color: var(--background-base-dark);
   cursor: pointer;
 }
-
 .hbk__arrow::after {
-  font-family: "Material Icons";
-  /* stylelint-disable-line */
+  font-family: "Material Icons"; /* stylelint-disable-line */
   display: block;
   height: 100%;
   width: 24px;
@@ -1663,10 +909,8 @@ sub {
   line-height: 17px;
   position: absolute;
   top: 0;
-  -webkit-transition: var(--hbk-color-accordion-transition-duration) ease-in-out;
   transition: var(--hbk-color-accordion-transition-duration) ease-in-out;
 }
-
 .hbk__arrow::before {
   content: "";
   width: 10px;
@@ -1676,39 +920,31 @@ sub {
   top: 0;
   z-index: 1;
 }
-
 .hbk__arrow--right::after {
   content: "\f1df";
   left: -4px;
 }
-
 .hbk__arrow--right::before {
   left: -8px;
 }
-
 .hbk__arrow--right:hover::after {
   color: var(--blue-green);
 }
-
 @media only screen and (min-width: 1025px) {
   .hbk__arrow--right:hover::after {
     left: 0;
   }
 }
-
 .hbk__arrow--left::after {
   content: "\f1e6";
   right: -4px;
 }
-
 .hbk__arrow--left::before {
   right: -8px;
 }
-
 .hbk__arrow--left:hover::after {
   color: var(--blue-green);
 }
-
 @media only screen and (min-width: 1025px) {
   .hbk__arrow--left:hover::after {
     right: 0;
@@ -1716,13 +952,11 @@ sub {
 }
 
 /* material-icons */
-
 .material-icons {
   font-family: "Material Icons";
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;
-  /* Preferred icon size */
+  font-size: 24px; /* Preferred icon size */
   display: inline-block;
   line-height: 1;
   text-transform: none;
@@ -1737,14 +971,12 @@ sub {
   /* Support for Firefox. */
   -moz-osx-font-smoothing: grayscale;
   /* Support for IE. */
-  -webkit-font-feature-settings: "liga";
-          font-feature-settings: "liga";
+  font-feature-settings: "liga";
 }
 
 #hero-resource > img {
   max-height: 350px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .xfpage .grid {
@@ -1752,42 +984,30 @@ sub {
 }
 
 /* placeholder skeletton design START*/
-
-.placeholder, .placeholder-image, .placeholder-curved{
-  display: inline-block;
-  min-height: 1em;
-  cursor: wait;
-  vertical-align: middle;
-  opacity: 0.5;
+.placeholder, .placeholder-image, .placeholder-curved {
+  @apply inline-block
+  min-h-[1em]
+  align-middle
+  cursor-wait
+  opacity-50;
   border-color: gray !important;
   background-color: gray !important;
   color: transparent !important;
-  -webkit-animation: placeholder-glow 2s ease-in-out infinite;
-          animation: placeholder-glow 2s ease-in-out infinite;
+  animation: placeholder-glow 2s ease-in-out infinite;
 }
-
-.placeholder-curved{
-  border-radius: 20px;
+.placeholder-curved {
+  @apply rounded-[20px];
 }
-
-.placeholder-image img{
-  opacity: 0;
-}
-
-@-webkit-keyframes placeholder-glow {
-  50%{
-    opacity: 0.2;
-  }
+.placeholder-image img {
+  @apply opacity-0;
 }
 
 @keyframes placeholder-glow {
-  50%{
-    opacity: 0.2;
+  50% {
+    @apply opacity-20;
   }
 }
-
 /* placeholder skeletton design END*/
-
 #cloudflare-app-google-translate {
   right: 0;
   position: fixed;
@@ -1798,13 +1018,11 @@ sub {
     right: 0;
     position: relative;
   }
-
   #cloudflare-app-google-translate .skiptranslate.goog-te-gadget {
     margin: 0 auto;
     width: calc(100% - 30px);
   }
 }
-
 .xf-content-height {
   margin: 0 !important;
   min-height: 0 !important;
@@ -1830,13 +1048,11 @@ html[lang=ko-KR] {
 }
 
 /* stylelint-enable */
-
 @media only screen and (min-width: 768px) {
   [id] {
     scroll-margin-top: 122px;
   }
 }
-
 @media only screen and (max-width: 767px) {
   [id] {
     scroll-margin-top: 80px;
@@ -1855,16 +1071,13 @@ a {
   line-height: var(--hbk-line-height-24);
   color: var(--hbk-color-anchor-default);
 }
-
 .hbk-teaser-horizontal-bg a, .hbk-container--primary-light a, .hbk-container--primary-dark a, .hbk-container--secondary-light a, .hbk-container--secondary-dark a {
   --hbk-color-anchor-default: var(--hbk-color-anchor-inverted);
   --hbk-color-anchor-hover: var(--hbk-color-anchor-hover-inverted);
 }
-
 a:active {
   color: var(--hbk-color-anchor-hover);
 }
-
 a:visited, a:hover {
   color: var(--hbk-color-anchor-hover);
   text-decoration: underline;
@@ -1880,11 +1093,9 @@ html {
     --noScroll-padding: 0;
   }
 }
-
 body {
   font-display: swap;
-  width: 100vw;
-  /* stylelint-disable-line */
+  width: 100vw; /* stylelint-disable-line */
   max-width: 100%;
   overflow-x: hidden;
   overflow-y: visible;
@@ -1934,16 +1145,10 @@ html:not(.aem-AuthorLayer-Preview) body .root.container.responsivegrid > .cmp-co
 html:not(.aem-AuthorLayer-Preview) body .root.wrapper > .cmp-container,
 html:not(.aem-Author--hidePlaceholder) body .root.container.responsivegrid > .cmp-container,
 html:not(.aem-Author--hidePlaceholder) body .root.wrapper > .cmp-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   min-height: calc(100vh - 150px);
 }
-
 @media only screen and (max-width: 767px) {
   html:not(.aem-AuthorLayer-Preview) body .root.container.responsivegrid > .cmp-container,
   html:not(.aem-AuthorLayer-Preview) body .root.wrapper > .cmp-container,
@@ -1952,14 +1157,11 @@ html:not(.aem-Author--hidePlaceholder) body .root.wrapper > .cmp-container {
     min-height: calc(100vh - 110px);
   }
 }
-
 html:not(.aem-AuthorLayer-Preview) body .root.container.responsivegrid > .cmp-container > .responsivegrid,
 html:not(.aem-AuthorLayer-Preview) body .root.wrapper > .cmp-container > .responsivegrid,
 html:not(.aem-Author--hidePlaceholder) body .root.container.responsivegrid > .cmp-container > .responsivegrid,
 html:not(.aem-Author--hidePlaceholder) body .root.wrapper > .cmp-container > .responsivegrid {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  flex: 1;
 }
 
 .display-heading {
@@ -1967,7 +1169,6 @@ html:not(.aem-Author--hidePlaceholder) body .root.wrapper > .cmp-container > .re
   font-size: var(--hbk-font-size-7);
   line-height: var(--hbk-line-height-64);
 }
-
 @media only screen and (max-width: 1024px) {
   .display-heading {
     font-size: var(--hbk-font-size-6);
@@ -1985,7 +1186,6 @@ h1, .like-h1 {
   margin-top: 50px;
   margin-bottom: 20px;
 }
-
 h1 a, .like-h1 a {
   font-family: var(--hbk-font-family-heading-h1);
   font-size: var(--hbk-font-size-heading-h1-s);
@@ -1994,30 +1194,25 @@ h1 a, .like-h1 a {
   text-decoration: underline;
   color: var(--hbk-color-anchor-default);
 }
-
 h1 a:hover, .like-h1 a:hover {
   color: var(--hbk-color-anchor-hover);
   text-decoration: underline;
 }
-
 @media only screen and (min-width: 768px) {
   h1, .like-h1 {
     --hbk-font-size-heading-h1-s: var(--hbk-font-size-heading-h1-m);
     --hbk-font-line-height-heading-h1-s: var(--hbk-font-line-height-heading-h1-m);
   }
 }
-
 @media only screen and (min-width: 1025px) {
   h1, .like-h1 {
     --hbk-font-size-heading-h1-s: var(--hbk-font-size-heading-h1-l);
     --hbk-font-line-height-heading-h1-s: var(--hbk-font-line-height-heading-h1-l);
   }
 }
-
 .hbk-teaser-horizontal-bg h1, .hbk-container--primary-light h1, .hbk-container--primary-dark h1, .hbk-container--secondary-dark h1, .hbk-teaser-horizontal-bg .like-h1, .hbk-container--primary-light .like-h1, .hbk-container--primary-dark .like-h1, .hbk-container--secondary-dark .like-h1 {
   color: var(--hbk-color-heading-h1-inverted);
 }
-
 .hbk-container--secondary-light h1, .hbk-container--secondary-light .like-h1 {
   color: var(--hbk-color-body-default-text);
 }
@@ -2030,25 +1225,21 @@ h2, .like-h2 {
   word-break: break-word;
   color: var(--hbk-color-heading-h2);
 }
-
 @media only screen and (min-width: 768px) {
   h2, .like-h2 {
     --hbk-font-size-heading-h2-s: var(--hbk-font-size-heading-h2-m);
     --hbk-font-line-height-heading-h2-s: var(--hbk-font-line-height-heading-h2-m);
   }
 }
-
 @media only screen and (min-width: 1025px) {
   h2, .like-h2 {
     --hbk-font-size-heading-h2-s: var(--hbk-font-size-heading-h2-l);
     --hbk-font-line-height-heading-h2-s: var(--hbk-font-line-height-heading-h2-l);
   }
 }
-
 .hbk-teaser-horizontal-bg h2, .hbk-container--primary-light h2, .hbk-container--primary-dark h2, .hbk-container--secondary-dark h2, .hbk-teaser-horizontal-bg .like-h2, .hbk-container--primary-light .like-h2, .hbk-container--primary-dark .like-h2, .hbk-container--secondary-dark .like-h2 {
   color: var(--hbk-color-heading-h2-inverted);
 }
-
 .hbk-container--secondary-light h2, .hbk-container--secondary-light .like-h2 {
   color: var(--hbk-color-body-default-text);
 }
@@ -2061,25 +1252,21 @@ h3, .like-h3 {
   word-break: break-word;
   color: var(--hbk-color-heading-h3);
 }
-
 @media only screen and (min-width: 768px) {
   h3, .like-h3 {
     --hbk-font-size-heading-h3-s: var(--hbk-font-size-heading-h3-m);
     --hbk-font-line-height-heading-h3-s: var(--hbk-font-line-height-heading-h3-m);
   }
 }
-
 @media only screen and (min-width: 1025px) {
   h3, .like-h3 {
     --hbk-font-size-heading-h3-s: var(--hbk-font-size-heading-h3-l);
     --hbk-font-line-height-heading-h3-s: var(--hbk-font-line-height-heading-h3-l);
   }
 }
-
 .hbk-teaser-horizontal-bg h3, .hbk-container--primary-light h3, .hbk-container--primary-dark h3, .hbk-container--secondary-dark h3, .hbk-teaser-horizontal-bg .like-h3, .hbk-container--primary-light .like-h3, .hbk-container--primary-dark .like-h3, .hbk-container--secondary-dark .like-h3 {
   color: var(--hbk-color-heading-h3-inverted);
 }
-
 .hbk-container--secondary-light h3, .hbk-container--secondary-light .like-h3 {
   color: var(--hbk-color-body-default-text);
 }
@@ -2092,25 +1279,21 @@ h4, .like-h4 {
   word-break: break-word;
   color: var(--hbk-font-weight-heading-h4);
 }
-
 @media only screen and (min-width: 768px) {
   h4, .like-h4 {
     --hbk-font-size-heading-h4-s: var(--hbk-font-size-heading-h4-m);
     --hbk-font-line-height-heading-h4-s: var(--hbk-font-line-height-heading-h4-m);
   }
 }
-
 @media only screen and (min-width: 1025px) {
   h4, .like-h4 {
     --hbk-font-size-heading-h4-s: var(--hbk-font-size-heading-h4-l);
     --hbk-font-line-height-heading-h4-s: var(--hbk-font-line-height-heading-h4-l);
   }
 }
-
 .hbk-teaser-horizontal-bg h4, .hbk-container--primary-light h4, .hbk-container--primary-dark h4, .hbk-container--secondary-dark h4, .hbk-teaser-horizontal-bg .like-h4, .hbk-container--primary-light .like-h4, .hbk-container--primary-dark .like-h4, .hbk-container--secondary-dark .like-h4 {
   color: var(--hbk-color-heading-h4-inverted);
 }
-
 .hbk-container--secondary-light h4, .hbk-container--secondary-light .like-h4 {
   color: var(--hbk-color-body-default-text);
 }
@@ -2124,25 +1307,21 @@ h5, .like-h5 {
   color: var(--hbk-color-heading-h5);
   text-transform: uppercase;
 }
-
 @media only screen and (min-width: 768px) {
   h5, .like-h5 {
     --hbk-font-size-heading-h5-s: var(--hbk-font-size-heading-h5-m);
     --hbk-font-line-height-heading-h5-s: var(--hbk-font-line-height-heading-h5-m);
   }
 }
-
 @media only screen and (min-width: 1025px) {
   h5, .like-h5 {
     --hbk-font-size-heading-h5-s: var(--hbk-font-size-heading-h5-l);
     --hbk-font-line-height-heading-h5-s: var(--hbk-font-line-height-heading-h5-l);
   }
 }
-
 .hbk-teaser-horizontal-bg h5, .hbk-container--primary-light h5, .hbk-container--primary-dark h5, .hbk-container--secondary-dark h5, .hbk-teaser-horizontal-bg .like-h5, .hbk-container--primary-light .like-h5, .hbk-container--primary-dark .like-h5, .hbk-container--secondary-dark .like-h5 {
   color: var(--hbk-color-heading-h5-inverted);
 }
-
 .hbk-container--secondary-light h5, .hbk-container--secondary-light .like-h5 {
   color: var(--hbk-color-body-default-text);
 }
@@ -2157,7 +1336,6 @@ h6, .like-h6 {
   position: relative;
   padding-left: 20px;
 }
-
 h6:before, .like-h6:before {
   content: "";
   position: absolute;
@@ -2167,25 +1345,21 @@ h6:before, .like-h6:before {
   left: 0;
   top: calc(50% - 0.5px);
 }
-
 @media only screen and (min-width: 768px) {
   h6, .like-h6 {
     --hbk-font-size-heading-h6-s: var(--hbk-font-size-heading-h6-m);
     --hbk-font-line-height-heading-h6-s: var(--hbk-font-line-height-heading-h6-m);
   }
 }
-
 @media only screen and (min-width: 1025px) {
   h6, .like-h6 {
     --hbk-font-size-heading-h6-s: var(--hbk-font-size-heading-h6-l);
     --hbk-font-line-height-heading-h6-s: var(--hbk-font-line-height-heading-h6-l);
   }
 }
-
 .hbk-teaser-horizontal-bg h6, .hbk-container--primary-light h6, .hbk-container--primary-dark h6, .hbk-container--secondary-dark h6, .hbk-teaser-horizontal-bg .like-h6, .hbk-container--primary-light .like-h6, .hbk-container--primary-dark .like-h6, .hbk-container--secondary-dark .like-h6 {
   color: var(--hbk-color-heading-h6-inverted);
 }
-
 .hbk-container--secondary-light h6, .hbk-container--secondary-light .like-h6 {
   color: var(--hbk-color-body-default-text);
 }
@@ -2198,11 +1372,9 @@ ul {
   list-style-type: disc;
   list-style-position: inside;
 }
-
 ul li::marker {
   color: var(--hbk-color-global-li-bullet);
 }
-
 .hbk-teaser-horizontal-bg ul li::marker, .hbk-container--primary-light ul li::marker, .hbk-container--primary-dark ul li::marker, .hbk-container--secondary-light ul li::marker, .hbk-container--secondary-dark ul li::marker {
   color: var(--hbk-color-global-li-bullet-inverted);
 }
@@ -2211,11 +1383,9 @@ ol {
   list-style-type: decimal;
   list-style-position: inside;
 }
-
 ol li::marker {
   color: var(--hbk-color-global-li-number);
 }
-
 .hbk-teaser-horizontal-bg ol li::marker, .hbk-container--primary-light ol li::marker, .hbk-container--primary-dark ol li::marker, .hbk-container--secondary-light ol li::marker, .hbk-container--secondary-dark ol li::marker {
   color: var(--hbk-color-global-li-number-inverted);
 }
@@ -2227,25 +1397,21 @@ blockquote {
   line-height: var(--hbk-font-line-height-blockquite-s);
   font-weight: var(--hbk-font-weight-heading-blockquite);
 }
-
 @media only screen and (min-width: 768px) {
   blockquote {
     --hbk-font-size-blockquite-s: var(--hbk-font-size-blockquite-m);
     --hbk-font-line-height-blockquite-s: var(--hbk-font-line-height-blockquite-m);
   }
 }
-
 @media only screen and (min-width: 1025px) {
   blockquote {
     --hbk-font-size-blockquite-s: var(--hbk-font-size-blockquite-l);
     --hbk-font-line-height-blockquite-s: var(--hbk-font-line-height-blockquite-l);
   }
 }
-
 blockquote::before {
   content: "“";
 }
-
 blockquote::after {
   content: "”";
 }
@@ -2321,30 +1487,24 @@ $z-indices: slider, modal, dialog, navigation;
 ---
 http://www.smashingmagazine.com/2014/06/12/sassy-z-index-management-for-complex-layouts/
 */
-
 .column-control-wrapper > div[class*=bg-] {
   padding: var(--hbk-spacing-container-desktop);
 }
 
 @media only screen and (min-width: 1025px) {
-  .container--frameWidth, .container--fullWidth{
-    width: auto;
-    padding-left: 0px;
-    padding-right: 0px;
+  .container--frameWidth, .container--fullWidth {
+    @apply w-auto pl-0 pr-0;
     margin-left: calc((100vw - var(--hbk-content-max-width)) * -1 / 2);
     margin-right: calc((100vw - var(--hbk-content-max-width)) * -1 / 2);
   }
 }
-
 .container--fullWidth {
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
-
 .container--fullWidth .container {
   max-width: 100% !important;
 }
-
 @media only screen and (min-width: 1680px) {
   .container--frameWidth {
     margin-left: calc((var(--hbk-layout-container-frame-width) - var(--hbk-content-max-width)) * -1);
@@ -2353,71 +1513,52 @@ http://www.smashingmagazine.com/2014/06/12/sassy-z-index-management-for-complex-
 }
 
 @media only screen and (min-width: 1025px) {
-  .gutter-gap{
-    gap: 1.5rem;
+  .gutter-gap {
+    @apply gap-6;
   }
 }
-
 @media only screen and (max-width: 1024px) {
-  .gutter-gap{
-    gap: 1.5rem;
+  .gutter-gap {
+    @apply gap-6;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .col-divider > div[class*=col-span-]:not(:last-child){
-    position: relative;
-  }
-
-  .col-divider > div[class*=col-span-]:not(:last-child)::after{
-    position: absolute;
-    top: 0px;
-    right: -12px;
-    height: 100%;
-    border-radius: 2px;
-    border-right-width: 1px;
-    border-style: solid;
-    border-color: var(--background-base-2);
-    --tw-content: "";
-    content: var(--tw-content);
+  .col-divider > div[class*=col-span-]:not(:last-child) {
+    @apply relative;
+    @apply after:content-[""]
+        after:border-r 
+        after:border-solid 
+        after:border-[var(--background-base-2)]
+        after:rounded-[2px]
+        after:absolute
+        after:h-full
+        after:top-0
+        after:right-[-12px];
   }
 }
-
 @media only screen and (max-width: 767px) {
-  .mobile-no-break.col-divider > div[class*=col-span-]:not(:last-child){
-    position: relative;
-  }
-
-  .mobile-no-break.col-divider > div[class*=col-span-]:not(:last-child)::after{
-    position: absolute;
-    top: 0px;
-    right: -12px;
-    height: 100%;
-    border-radius: 2px;
-    border-right-width: 1px;
-    border-style: solid;
-    border-color: var(--background-base-2);
-    --tw-content: "";
-    content: var(--tw-content);
+  .mobile-no-break.col-divider > div[class*=col-span-]:not(:last-child) {
+    @apply relative;
+    @apply after:content-[""]
+          after:border-r 
+          after:border-solid 
+          after:border-[var(--background-base-2)]
+          after:rounded-[2px]
+          after:absolute
+          after:h-full
+          after:top-0
+          after:right-[-12px];
   }
 }
 
 /* column-control cmp css */
-
-@media (max-width: 767px){
-  .column-reverse .grid{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
-  }
+.column-reverse .grid {
+  @apply sm-only:flex sm-only:flex-col-reverse;
 }
 
-.container .container{
-  padding: 0px;
+.container .container {
+  @apply p-0;
 }
 
 @media only screen and (max-width: 767px) {
@@ -2425,7 +1566,6 @@ http://www.smashingmagazine.com/2014/06/12/sassy-z-index-management-for-complex-
     margin-bottom: var(--hbk-spacing-columncontrol-default);
   }
 }
-
 .container {
   max-width: 100%;
   margin-right: auto;
@@ -2438,21 +1578,18 @@ http://www.smashingmagazine.com/2014/06/12/sassy-z-index-management-for-complex-
     padding-right: 20px;
   }
 }
-
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   .container {
     padding-left: 20px;
     padding-right: 20px;
   }
 }
-
 @media only screen and (min-width: 768px) {
   .container {
     padding-left: 20px;
     padding-right: 20px;
   }
 }
-
 @media only screen and (min-width: 1025px) {
   .container {
     padding-left: 0;
@@ -2460,56 +1597,41 @@ http://www.smashingmagazine.com/2014/06/12/sassy-z-index-management-for-complex-
     max-width: 1200px;
   }
 }
-
 .helloworld {
   border: 1px solid;
   padding: 10px;
-  -webkit-box-shadow: 5px 10px #888888;
-          box-shadow: 5px 10px #888888;
+  box-shadow: 5px 10px #888888;
   background-color: green;
 }
 
-.abc{
-  font-size: 2.25rem;
-  line-height: 2.5rem;
+.abc {
+  @apply text-4xl;
 }
 
-.cmp-title{
-  --tw-bg-opacity: 1;
-  background-color: rgb(133 77 14 / var(--tw-bg-opacity));
+.cmp-title {
+  @apply bg-yellow-800;
 }
 
 .boxContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 20px;
-  /* Adjust the gap between items */
+  flex-direction: column;
+  gap: 20px; /* Adjust the gap between items */
   border: 1px solid #ccc;
   padding: 20px;
-  width: 1000px;
-  /* Adjust the width as needed */
-  margin: 0 0;
-  /* Center the container horizontally */
+  width: 1000px; /* Adjust the width as needed */
+  margin: 0 0; /* Center the container horizontally */
 }
 
 /* Style each product block */
-
 .boxContainer > div {
   background-color: #f0f0f0;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Style the product name */
-
 .boxContainer > div > div:nth-child(1) {
   font-weight: bold;
 }
@@ -2518,17 +1640,10 @@ p {
   color: red;
 }
 
-label{
-  border-width: 2px;
-  font-size: var(--hbk-font-size-6);
-  line-height: var(--hbk-line-height-40);
-  color: var(--mid-blue);
+label {
+  @apply border-2 text-[length:var(--hbk-font-size-6)] text-[color:var(--mid-blue)] leading-[var(--hbk-line-height-40)];
 }
 
-input{
-  height: 36px;
-  border-width: 2px;
-  --tw-border-opacity: 1;
-  border-color: rgb(131 24 67 / var(--tw-border-opacity));
-  font-size: 22px;
+input {
+  @apply border-2 border-pink-900 h-[36px] text-[22px];
 }

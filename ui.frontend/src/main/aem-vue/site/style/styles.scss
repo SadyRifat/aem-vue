@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// @import './scheme';
+// @import './scss/input';
+// @import './scss/helloworld.scss';
+// //@import './scss/columncontrol.scss';
+// @import './scss/input.scss';
+
+@import './theme/commons/scheme';
+@import './theme/commons/variables/import_variables';
+@import './theme/commons/mixins/import_mixins';
+@import './theme/commons/global/global';
+@import './theme/commons/functions/import_functions';
+
+// all comnponents 
+@import './components/columncontrol';
+@import './components/helloworld';
+@import './components/input';

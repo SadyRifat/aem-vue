@@ -1,0 +1,13 @@
+@charset 'UTF-8';
+
+// Mixin for multiline truncation with ellipsis
+// Not supported only in ie11 which will not be supported
+
+@mixin lineClamp($lineCount: 1, $height: 20px, $lineHeight: 30px) {
+  height: $height; // in IE11 text will be hidden only, adjust height of text-container
+  overflow: hidden; // in IE11 text will be hidden only
+  display: -webkit-box;
+  -webkit-line-clamp: $lineCount;
+  -webkit-box-orient: vertical;
+  line-height: $lineHeight;
+}

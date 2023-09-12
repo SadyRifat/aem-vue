@@ -1,4 +1,5 @@
-/** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin')
+
 module.exports = {
   content: ["./src/main/aem-vue/components/**/*.{html,js,ts}"],
   theme: {
@@ -15,7 +16,7 @@ module.exports = {
   },
 
   plugins: [
-    function ({ addComponents }) {
+    plugin(function({ addComponents }) {
       addComponents({
         '.container': {
           maxWidth: '100%',
@@ -43,7 +44,7 @@ module.exports = {
           },
         }
       })
-    }
+    })
   ],
 }
 

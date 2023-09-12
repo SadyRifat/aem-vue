@@ -1,0 +1,65 @@
+/*
+lt0 = (default) 1 column at a 100%
+lt1 = 2 columns (50%, 50%)
+lt2 = 2 columns (33%, 66%)
+lt3 = 2 columns (66%, 33%)
+lt4 = 3 columns (33%, 33%, 33%)
+lt5 = 4 columns (25%, 25%, 25%, 25%)
+
+## Parameters
+@parameter $layout-type = lt0 | lt1 | lt2 | lt3 | lt4 | lt5
+*/
+
+@mixin generate-grid-layout($layout-type) {
+  box-sizing: border-box;
+
+  @if $layout-type == lt0 {
+    width: 100%;
+  } @else if $layout-type == lt1 {
+    width: 100%;
+
+    @include tablet-up {
+      width: 50%;
+    }
+  } @else if $layout-type == lt2 {
+    width: 100%;
+
+    @include tablet-up {
+      width: calc(100% / 3);
+
+      &:last-child {
+        width: calc(2 * 100% / 3);
+      }
+    }
+  } @else if $layout-type == lt3 {
+    width: 100%;
+
+    @include tablet-up {
+      width: calc(100% / 3);
+
+      &:first-child {
+        width: calc(2 * 100% / 3);
+      }
+    }
+  } @else if $layout-type == lt4 {
+    width: 100%;
+
+    @include tablet-up {
+      width: calc(100% / 3);
+    }
+  } @else if $layout-type == lt5 {
+    width: 100%;
+
+    @include tablet-only {
+      width: 50%;
+
+      &:nth-child(1n), &:nth-child(2n) {
+        margin-bottom: var(--hbk-spacing-columncontrol-default);
+      }
+    }
+
+    @include desktop-up {
+      width: 25%;
+    }
+  }
+}

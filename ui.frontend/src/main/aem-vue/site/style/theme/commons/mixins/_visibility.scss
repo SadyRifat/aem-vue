@@ -1,0 +1,39 @@
+/* doc
+---
+title: Visibility
+name: visibility
+category: mixins
+---
+
+Mixin to add visibility to control to elements
+
+---
+
+## Example
+---
+
+```html_example
+.container {
+  &__base {
+    @include visible();
+
+    @include breakpoint($b-01) {
+      @include hidden();
+    }
+  }
+}
+```
+*/
+
+// default model is block, can override with flex, etc
+$model: block !default;
+
+@mixin visible($model) {
+  display: $model;
+  visiblity: visible;
+}
+
+@mixin hidden() {
+  display: none;
+  visiblity: hidden;
+}

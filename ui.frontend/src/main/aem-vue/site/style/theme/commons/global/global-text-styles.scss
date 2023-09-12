@@ -1,0 +1,93 @@
+li {
+  //margin-bottom: 20px;
+  position: relative;
+}
+
+// Global unordered list style
+ul {
+  list-style-type: disc;
+  list-style-position: inside;
+
+  li {
+
+    &::marker {
+      color: var(--hbk-color-global-li-bullet);
+
+      .hbk-teaser-horizontal-bg &,
+      .hbk-container--primary-light &,
+      .hbk-container--primary-dark &,
+      .hbk-container--secondary-light &,
+      .hbk-container--secondary-dark & {
+        color: var(--hbk-color-global-li-bullet-inverted);
+      }
+    }
+  }
+}
+
+// Global unordered list style
+ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+
+  li {
+
+    &::marker {
+      color: var(--hbk-color-global-li-number);
+
+      .hbk-teaser-horizontal-bg &,
+      .hbk-container--primary-light &,
+      .hbk-container--primary-dark &,
+      .hbk-container--secondary-light &,
+      .hbk-container--secondary-dark & {
+        color: var(--hbk-color-global-li-number-inverted);
+      }
+    }
+  }
+}
+
+blockquote {
+  color: var(--hbk-color-heading-blockquite);
+  font-family: var(--hbk-font-family-blockquite);
+  font-size: var(--hbk-font-size-blockquite-s);
+  line-height: var(--hbk-font-line-height-blockquite-s);
+  font-weight: var(--hbk-font-weight-heading-blockquite);
+
+  @include tablet-up {
+    --hbk-font-size-blockquite-s: var(--hbk-font-size-blockquite-m);
+    --hbk-font-line-height-blockquite-s: var(--hbk-font-line-height-blockquite-m);
+  }
+
+  @include desktop-up { 
+    --hbk-font-size-blockquite-s: var(--hbk-font-size-blockquite-l);
+    --hbk-font-line-height-blockquite-s: var(--hbk-font-line-height-blockquite-l);
+  }
+
+  &::before {
+    content: '\201C';
+  }
+
+  &::after {
+    content: '\201D';
+  }
+}
+
+pre {
+  font-family: "Consolas", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "Monaco", "Courier New", "Courier", monospace;
+  white-space: pre-wrap;
+}
+
+b, strong{
+  font-weight: var(--hbk-font-weight-bold);
+}
+
+small{
+  font-size: var(--hbk-font-size-0);
+  line-height: var(--hbk-line-height-20);
+}
+
+// Editor fix 
+coral-columnview-item-content {
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  height: 2.6rem;
+}

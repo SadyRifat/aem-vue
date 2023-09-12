@@ -1,0 +1,71 @@
+// #h-align .columncontrol__wrapper {
+//     align-items: center;
+// }
+
+//   #hero-image img {
+//     max-height: 370px;
+//     object-fit:cover;
+//   }
+
+// Google Translator
+#cloudflare-app-google-translate {
+    right: 0;
+    position: fixed;
+}
+
+@include tablet-down {
+    #cloudflare-app-google-translate {
+        right: 0;
+        position: relative;
+    }
+
+    #cloudflare-app-google-translate .skiptranslate.goog-te-gadget {
+        margin: 0 auto;
+        width: calc(100% - 30px);
+    }
+}
+
+// Reset experience fragment default styles
+.xf-content-height {
+    margin: 0!important;
+    min-height: 0!important;
+}
+
+
+// japanise only
+html[lang="ja"] {
+  --hbk-font-family-basic-primary: 'Noto Sans JP', sans-serif;
+  --hbk-font-family-basic-secondary: 'Noto Sans JP', sans-serif;
+}
+
+// Chinese only
+html[lang="zh"],
+html[lang="zh-CN"],
+html[lang="zh-HK"],
+html[lang="zh-TW"]{
+  --hbk-font-family-basic-primary: 'Noto Sans HK', sans-serif;
+  --hbk-font-family-basic-secondary: 'Noto Sans HK', sans-serif;
+}
+
+// korean only
+html[lang="ko"],
+html[lang="ko-KR"] {
+  --hbk-font-family-basic-primary: 'Noto Sans KR', sans-serif;
+  --hbk-font-family-basic-secondary: 'Noto Sans KR', sans-serif;
+}
+/* stylelint-enable */
+
+[id] {
+  @include tablet-up{
+    scroll-margin-top: 122px;
+  }
+  @include tablet-down{
+    scroll-margin-top: 80px;
+  }
+}
+
+//min page height
+html:not(.aem-AuthorLayer-Preview, .aem-AuthorLayer-Edit) body>.wrapper {
+  min-height: calc(100vh - 150px);
+}
+

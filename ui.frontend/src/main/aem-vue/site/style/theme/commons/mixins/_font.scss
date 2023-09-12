@@ -1,0 +1,529 @@
+/* stylelint-disable max-nesting-depth */
+/* stylelint-disable media-feature-name-no-vendor-prefix */
+
+/* doc
+---
+title: Font
+name: font
+category: mixins
+---
+
+Use this mixing to add fonts and normalization.
+
+Documentation:
+
+- https://projects.netcentric.biz/wiki/display/FRONTEND/CSS+-+Font+Normalization
+- https://projects.netcentric.biz/wiki/display/FRONTEND/SCSS+-+Font+management
+
+## Parameters
+---
+@param $font-type
+@param $normalize
+
+## Dependencies
+---
+/abstract/functions/nn-px-to-em
+/abstract/functions/nn-px-to-rem
+/abstract/functions/nn-px-to-unitless
+/abstract/mixins/font-icon
+*/
+
+$unit: rem !default;
+
+// Font normalization default (Arial)
+$actual-font-size-default: 71.6;
+$font-top-default: 13.1;
+$font-bottom-default: 15.3;
+$normalized-spacing: 12 !default;
+$icon-font: '';
+
+@mixin font($font-type, $normalize: none) {
+  // Variable to save font definitions to make them reusable in later breakpoints
+  $default-font-map: ();
+  $normalizeExist: false;
+  $spacingOnly: false;
+  $iconOnly: false;
+  $icon-font-local: $icon-font;
+
+  // Iterate over all breakpoints defined in the font
+  @each $property, $values in $font-type {
+    // Font map for this breakpoint
+    $font-map: $values;
+    // Set status if something changed in the font (since previous breakpoint)
+    $font-change: false;
+    $normalize-change: false;
+    $normalize-set: false;
+
+    @each $type, $values2 in $values {
+      // If a relevant font value is defined merge it in the default font map - set status flag that font got changed
+      @if ($type == 'font-style') {
+        $default-font-map: map-merge($default-font-map, (font-style: $values2));
+        $font-change: true;
+      }
+
+      @if ($type == 'font-variant') {
+        $default-font-map: map-merge($default-font-map, (font-variant: $values2));
+        $font-change: true;
+      }
+
+      @if ($type == 'font-weight') {
+        $default-font-map: map-merge($default-font-map, (font-weight: $values2));
+        $font-change: true;
+      }
+
+      @if ($type == 'font-family') {
+        $default-font-map: map-merge($default-font-map, (font-family: $values2));
+        $font-change: true;
+      }
+
+      @if ($type == 'font-family-settings') {
+        $font-family: map-get($values2, 'font-family');
+        $default-font-map: map-merge($default-font-map, (font-family: $font-family));
+        // Merge the font-normalization rules into the default breakpoint specific font map
+        $font-normalization: map-get($values2, 'normalization');
+        $font-map: map-merge($font-map, (font-normalization: $font-normalization));
+        // Merge the font-normalization rules into the default general font map
+        $default-font-map: map-merge($default-font-map, (font-normalization: $font-normalization));
+        // Merge icon font specific values into font map
+        $icon-font-setting: map-get($values2, 'icon-font');
+
+        @if ($icon-font-setting) {
+          $icon-font-local: $icon-font-setting;
+        }
+        $font-map: map-merge($font-map, (icon-font-local: $icon-font-local));
+        // Merge the font-normalization rules into the default general font map
+        $default-font-map: map-merge($default-font-map, (icon-font-local: $icon-font-local));
+        // Merge the antializing settings
+        $antialiasing: map-get($values2, 'antialiasing');
+        $default-font-map: map-merge($default-font-map, (antialiasing: $antialiasing));
+        $font-change: true;
+      }
+
+      @if ($type == 'font-size') {
+        $default-font-map: map-merge($default-font-map, (font-size: $values2));
+        $font-change: true;
+      }
+
+      @if ($type == 'line-height') {
+        $default-font-map: map-merge($default-font-map, (line-height: $values2));
+        $font-change: true;
+      }
+
+      // Check if font normalization is set
+      @if ($type == 'normalize' and $normalize != none) {
+        $normalize-set: true;
+        // Iterate over all specific normalization setting groups
+        @each $normalizetype, $normalizevalue in $values2 {
+          // Default normalization settings - will get reused as base for all other normalization setting groups
+          @if $normalizetype == 'default' {
+            // Merge the normalization setting group into the default breakpoint specific font map
+            $font-map: map-merge($font-map, $normalizevalue);
+            // Merge the normalization setting group into the default general font map
+            $default-font-map: map-merge($default-font-map, $normalizevalue);
+            // 'default' was the second parameter the font mixing was called with
+            @if ($normalize == 'default') {
+              $normalizeExist: true;
+              $normalize-change: true;
+            }
+          }
+            // This normalization setting group was the second parameter the font mixing was called with
+          @else if $normalizetype == $normalize {
+            // Merge the normalization setting group into the default breakpoint specific font map
+            $font-map: map-merge($font-map, $normalizevalue);
+            // Merge the normalization setting group into the default general font map
+            $default-font-map: map-merge($default-font-map, $normalizevalue);
+            $normalizeExist: true;
+            $normalize-change: true;
+            // The normalization setting group name ends with '-spacing'. In this case we don't want to set any font definitions - only spacings
+            @if (str_index($normalize, '-spacing') != null) {
+              $spacingOnly: true;
+            }
+            //the normalization setting group name starts with 'icon-'. In this case we don't want to set any font definitions - only spacings and the icon
+            @if (str_index($normalize, 'icon-') != null) {
+              $iconOnly: true;
+            }
+          }
+        }
+      }
+    }
+
+    // check when font was called with normalization that it exist for the current breakpoint
+    @if (($normalize-set and $normalizeExist) or $normalize-set == false) {
+      // Font normalisation is defined for font
+      @if $normalizeExist {
+        // Font or normalization changed in breakpoint
+        @if $normalize-change or $font-change {
+          $font-map: map-merge($font-map, (normalization: true));
+        }
+      }
+
+      // Set spacing only parameter so that no new font definitions are getting set later on
+      @if ($spacingOnly) {
+        // Merge the spacing only parameter into the default breakpoint specific font map
+        $font-map: map-merge($font-map, (setSpacingOnly: true));
+        // Merge the spacing only parameter into the default general font map
+        $default-font-map: map-merge($default-font-map, (setSpacingOnly: true));
+      }
+
+      // Set icon parameter
+      @if ($iconOnly) {
+        //merge the spacing only parameter into the default breakpoint specific font map
+        $font-map: map-merge($font-map, (setIconOnly: true));
+        //merge the spacing only parameter into the default general font map
+        $default-font-map: map-merge($default-font-map, (setIconOnly: true));
+      }
+
+      // Merge the general font map into the default breakpoint specific font map
+      $font-map: map-merge($font-map, $default-font-map);
+      // Something on the font changed - set flag
+      @if $font-change {
+        $font-map: map-merge($font-map, (font-change: true));
+      }
+
+      @else {
+        $font-map: map-merge($font-map, (font-change: false));
+      }
+
+      // Remove the 'normalize' and 'font-family-settings' settings from the font map. They are not needed any more
+      $font-map: map-remove($font-map, 'normalize');
+      $font-map: map-remove($font-map, 'font-family-settings');
+
+      // Case breakpoint
+      @if $property != 'default' {
+        @media (min-width: $property) {
+          @include fontWrite($font-map...);
+        }
+      }
+        // Case default - no breakpoint
+      @else {
+        $font-map: map-merge($font-map, (defaultBreakpoint: true));
+
+        @include fontWrite($font-map...);
+      }
+    }
+  }
+}
+
+@function spacing-modifier($spacing, $normalized-spacing, $height, $topPaddingRelative, $bottomPaddingRelative,
+$font-size, $line-height, $actual-font-size, $sibling, $content-box) {
+  $spacing-modifier: $spacing;
+
+  // Normalised spacing is set
+  @if $normalized-spacing != none {
+    // Normalized spacing per top/bottom side
+    $normalized-spacing: $normalized-spacing/2;
+    // Sibling spacing per default same value
+    $sibling-spacing: $normalized-spacing;
+
+    @if $height != none {
+      @if ($content-box == true) {
+        $normalized-spacing: ($height - $actual-font-size) / 2;
+      }
+
+      @else {
+        // height is set and border-box => no normalized spacing on element
+        $normalized-spacing: 0;
+      }
+    }
+
+    @if ($sibling == false) {
+      // no sibling exists => sibling spacing is 0
+      $sibling-spacing: 0;
+    }
+
+    @else if ($sibling != none) {
+      // Element has sibling with specific normalization
+      $sibling-spacing: $sibling/2;
+    }
+    $spacing-modifier: $spacing - $normalized-spacing - $sibling-spacing;
+  }
+    // Normalised spacing is not set
+  @else {
+    @if $height == none {
+      // Element height is not set
+      $fontPlacementModifier: ($bottomPaddingRelative - $topPaddingRelative)/2 * $font-size/100;
+      $fontSpacing: (($line-height - $actual-font-size) / 2);
+      $spacing-modifier: $spacing - $fontSpacing + $fontPlacementModifier;
+    }
+
+    @else {
+      // Element height is set
+      $spacing-modifier: $spacing;
+    }
+  }
+
+  @return $spacing-modifier;
+}
+
+@function center-in-element($topPaddingRelative, $bottomPaddingRelative, $line-height, $spacing, $actual-font-size) {
+  @if ($topPaddingRelative > $bottomPaddingRelative) {
+    $bottomPaddingRelative: ($topPaddingRelative - $bottomPaddingRelative) * $line-height / 100;
+    $topPaddingRelative: 0;
+    $spacing: $spacing - $bottomPaddingRelative;
+  }
+
+  @else if ($topPaddingRelative < $bottomPaddingRelative) {
+    $topPaddingRelative: ($bottomPaddingRelative - $topPaddingRelative) * $line-height / 100;
+    $bottomPaddingRelative: 0;
+    $spacing: $spacing - $topPaddingRelative;
+  }
+
+  $topBottomPaddingRelative: ($spacing - ($line-height - $actual-font-size)) / 2;
+  $bottomPaddingRelative: $bottomPaddingRelative + $topBottomPaddingRelative;
+  $topPaddingRelative: $topPaddingRelative + $topBottomPaddingRelative;
+
+  @return (topValue: $topPaddingRelative, bottomValue: $bottomPaddingRelative);
+}
+
+@mixin fontWrite($font-family, $font-size, $line-height, $color: none, $font-weight: normal, $font-style: normal,
+$font-variant: normal, $text-transform: none, $text-decoration: none, $normalization: none, $font-normalization: none,
+$normalized-spacing: none, $top-spacing: none, $bottom-spacing: none, $height: none, $min-height: none, $max-height: none,
+$setSpacingOnly: none, $font-change: none, $line-spacing: none, $predecessor: none, $successor: none, $content-box: none, $clear-margin: none, $clear-margin-bottom: none,
+$flip-horizontal: none,
+$clear-margin-top: none, $antialiasing: none,
+$icon: none, $icon-font-local: none, $icon-spacing: none, $icon-color: none, $icon-alignment: left, $icon-position: static, $icon-vertical-alignment: top, $defaultBreakpoint: false, $setIconOnly: none) {
+  // Set all font definitions when case is not to set spacing only
+  @if $setSpacingOnly != true and $setIconOnly != true {
+    // Set the font definitions in one line when all mandatory values are defined
+    // Check that a font value actually changed to avoid double css definitions
+    @if $font-size != '' and $font-family != '' and $font-change != false {
+
+      // For rem, we seperate the values for < IE 10, otherwise we use shorthand notation.
+
+      @if ($unit == rem) {
+        font-size: nn-px-to-rem($font-size);
+        font-family: $font-family;
+
+        @if $font-style != '' and $font-style != normal {
+          font-style: $font-style;
+        }
+
+        @if $font-variant != '' and $font-variant != normal {
+          font-variant: $font-variant;
+        }
+
+        @if $font-weight != '' and $font-weight != normal {
+          font-weight: $font-weight;
+        }
+
+        @if $line-height != '' {
+          line-height: nn-px-to-unitless($line-height, $font-size);
+        }
+      }
+
+      @else {
+
+        // Otherwise we use shorthand font notation
+
+        $font: '';
+
+        @if $font-style != '' and $font-style != normal {
+          $font: #{$font + ' ' + $font-style};
+        }
+
+        @if $font-variant != '' and $font-variant != normal {
+          $font: #{$font + ' ' + $font-variant};
+        }
+
+        @if $font-weight != '' and $font-weight != normal {
+          $font: #{$font + ' ' + $font-weight};
+        }
+
+        @if ($unit == em) {
+          $font: #{$font + ' ' + nn-px-to-em($font-size)};
+        }
+
+        @else {
+          $font: #{$font + ' ' + $font-size + 'px'};
+        }
+
+        @if $line-height != '' {
+          $font: #{$font + '/' + nn-px-to-unitless($line-height, $font-size)};
+        }
+
+        $font: #{$font + ' ' + $font-family};
+
+        font: $font;
+      }
+
+      // If $antialiasing is set and the font-size is bigger than the critical
+      // font-size we set the antialiasing settings
+      @if ($antialiasing != null and $antialiasing != none) {
+        @if ($antialiasing <= $font-size) {
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+      }
+    }
+
+    // Set color
+    @if $color != '' and $color != none {
+      color: #{$color};
+    }
+
+    // Set text transform
+    @if $text-transform != '' and $text-transform != none {
+      text-transform: #{$text-transform};
+    }
+
+    // Set text decoration
+    @if $text-decoration != '' and $text-decoration != none {
+      text-decoration: #{$text-decoration};
+    }
+
+    // Set min height
+    @if $min-height != '' and $min-height != none {
+      min-height: nn-px-to-em($min-height, $font-size);
+    }
+
+    // Set max height
+    @if $max-height != '' and $max-height != none {
+      max-height: nn-px-to-em($max-height, $font-size);
+    }
+  }
+
+  // Set all normalization values and spacings when defined
+  @if $normalization != null and $normalization != none {
+    //set the base values for normalization
+    $actual-font-size: $actual-font-size-default;
+    $topPaddingRelative: $font-top-default;
+    $bottomPaddingRelative: $font-bottom-default;
+    $actual-font-size: $font-size * $actual-font-size-default / 100;
+
+    // Don't set line spacing when top spacing is defined
+    @if $top-spacing != none {
+      $line-spacing: none;
+    }
+
+    @if $font-normalization != null and $font-normalization != none {
+      // Take values from font definition
+      $actual-font-size: map-get($font-normalization, 'actual-font-size');
+      $topPaddingRelative: map-get($font-normalization, 'top');
+      $bottomPaddingRelative: map-get($font-normalization, 'bottom');
+      $actual-font-size: $font-size * $actual-font-size / 100;
+    }
+
+    // Normalize spacing to elements - don't execute when a element height should get set
+    @if $normalized-spacing != none and $setSpacingOnly != true and $height == none {
+      // Level font in middle of line
+      $topBottom: center-in-element($topPaddingRelative, $bottomPaddingRelative, $line-height, $normalized-spacing, $actual-font-size);
+      $topPaddingRelative: map-get($topBottom, topValue);
+      $bottomPaddingRelative: map-get($topBottom, bottomValue);
+
+      // Handling negative spacing - can be the case when the line height is to small
+      @if ($topPaddingRelative < 0) {
+        // Set the value as top-spacing as negative spacing will be handled with margins
+        @if $top-spacing != none {
+          // A top-spacing is defined - add the negative spacing to it
+          $top-spacing: $top-spacing + $topPaddingRelative;
+        }
+
+        @else {
+          // Define a top spacing which is made up by adding the normalized spacing with the negative spacing
+          $top-spacing: $topPaddingRelative + $normalized-spacing;
+        }
+        // Set padding to zero
+        $topPaddingRelative: 0;
+      }
+
+      @if ($bottomPaddingRelative < 0) {
+        // Set the value as bottom-spacing as negative spacing will be handled with margins
+        @if $bottom-spacing != none {
+          // A bottom-spacing is defined - add the negative spacing to it
+          $bottom-spacing: $bottom-spacing + $bottomPaddingRelative;
+        }
+
+        @else {
+          // Define a bottom spacing which is made up by adding the normalized spacing with the negative spacing
+          $bottom-spacing: $bottomPaddingRelative + $normalized-spacing;
+        }
+        // Set padding to zero
+        $bottomPaddingRelative: 0;
+      }
+      // Dont set when only icon gets includes
+      @if ($setIconOnly != true) {
+        padding-top: nn-px-to-em($topPaddingRelative, $font-size);
+        padding-bottom: nn-px-to-em($bottomPaddingRelative, $font-size);
+      }
+    }
+
+    // Set normalized height
+    @if $height != none {
+      // Level font in middle of line
+      $topBottom: center-in-element($topPaddingRelative, $bottomPaddingRelative, $line-height, $height, 0);
+      $topPaddingRelative: map-get($topBottom, topValue);
+      $bottomPaddingRelative: map-get($topBottom, bottomValue);
+
+      // Don't set when only icon gets includes
+      @if ($setIconOnly != true) {
+        padding-top: nn-px-to-em($topPaddingRelative, $font-size);
+        padding-bottom: nn-px-to-em($bottomPaddingRelative, $font-size);
+      }
+    }
+
+    // Don't set when only icon gets includes
+    @if ($setIconOnly != true) {
+      // Set line spacing
+      @if $line-spacing != none {
+        $top-spacing: $line-spacing - $actual-font-size;
+      }
+
+      // Set top spacing
+      @if $top-spacing != none {
+        $top-spacing-modifier: spacing-modifier($top-spacing, $normalized-spacing, $height, $topPaddingRelative, $bottomPaddingRelative, $font-size, $line-height, $actual-font-size, $predecessor, $content-box);
+
+        margin-top: nn-px-to-em($top-spacing-modifier, $font-size);
+      }
+
+      @else if ($clear-margin != none or $clear-margin-top != none) {
+        // Reset top spacing if parameter is set
+        margin-top: 0;
+      }
+
+      // Set bottom spacing
+      @if $bottom-spacing != none {
+        $bottom-spacing-modifier: spacing-modifier($bottom-spacing, $normalized-spacing, $height, $topPaddingRelative, $bottomPaddingRelative, $font-size, $line-height, $actual-font-size, $successor, $content-box);
+
+        margin-bottom: nn-px-to-em($bottom-spacing-modifier, $font-size);
+      }
+
+      @else if ($clear-margin != none or $clear-margin-bottom != none) {
+        margin-bottom: 0;
+      }
+    }
+
+    // Set icon
+    @if ($icon != none) {
+      // Set padding on item for spacing in absolute case
+      $topPadding: none;
+      $bottomPadding: none;
+
+      @if ($icon-position == absolute) {
+        @if ($icon-spacing != none) {
+          @if ($icon-alignment == left) {
+            //padding-left: nn-px-to-em($icon-spacing, $font-size);
+            @include nn-px-to-unit(padding-left, $icon-spacing, $font-size);
+          }
+
+          @else {
+            //padding-right: nn-px-to-em($icon-spacing, $font-size);
+            @include nn-px-to-unit(padding-right, $icon-spacing, $font-size);
+          }
+        }
+
+        position: relative;
+        $fontBaseline: map-get($font-normalization, 'bottom');
+        $iconBaseline: map-get($icon-font-local, 'bottom');
+
+        @if ($normalized-spacing != none or $height != none) {
+          $paddingCorrection: ($fontBaseline - $iconBaseline)/100 * $font-size;
+          $topPadding: $topPaddingRelative  - $paddingCorrection;
+          $bottomPadding: $bottomPaddingRelative + $paddingCorrection;
+        }
+      }
+
+      @include font-icon($icon, map-get($icon-font-local, 'font-family'), $icon-spacing, $color: $icon-color, $alignment: $icon-alignment, $position: $icon-position, $vertical-alignment: $icon-vertical-alignment,
+      $topPadding: $topPadding, $bottomPadding: $bottomPadding, $font-size: $font-size, $defaultBreakpoint: $defaultBreakpoint, $flip-horizontal: $flip-horizontal);
+    }
+  }
+}

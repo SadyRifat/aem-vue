@@ -100,3 +100,34 @@
     margin-bottom: var(--hbk-spacing-columncontrol-default);
   }
 }
+
+.container{
+  max-width:100%;
+  margin-right:auto;
+  margin-left:auto
+}
+@include tablet-down{
+  .container{
+      padding-left:20px;
+      padding-right:20px
+  }
+}
+@include tablet-only{
+  .container{
+      padding-left:20px;
+      padding-right:20px
+  }
+}
+@include tablet-up{
+  .container{
+      padding-left:20px;
+      padding-right:20px
+  }
+}
+@include desktop-up{
+  .container{
+      padding-left:0;
+      padding-right:0;
+      max-width:1200px
+  }
+}

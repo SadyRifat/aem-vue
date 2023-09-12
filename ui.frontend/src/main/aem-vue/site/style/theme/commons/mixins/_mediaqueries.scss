@@ -1,0 +1,62 @@
+@charset 'UTF-8';
+
+// Breakpoints used in _breakpoints.scss
+
+$b-0: 320px;
+$b-00: 480px;
+$b-01: 768px;
+$b-02: 1025px;
+$b-03: 1280px;
+
+$b-00-max: $b-00 - 1; // 479px
+$b-01-max: $b-01 - 1; // 767px
+$b-02-max: $b-02 - 1; // 1024px
+$b-03-max: $b-03 - 1; // 1279px
+
+
+@mixin mobile-small { // 0 320
+  @media only screen and (max-width: $b-0) { @content; }
+}
+
+@mixin mobile-down { // 0 479
+  @media only screen and (max-width: $b-00-max) { @content; }
+}
+
+@mixin mobile-up { // 480 up
+  @media only screen and (min-width: $b-00) { @content; }
+}
+
+@mixin tablet-down { // 0 767
+  @media only screen and (max-width: $b-01-max) { @content; }
+}
+
+@mixin tablet-only { // 768 - 1023
+  @media only screen and (min-width: $b-01) and (max-width: $b-02-max) { @content; }
+}
+
+@mixin tablet-up { // 768 up
+  @media only screen and (min-width: $b-01) { @content; }
+}
+
+@mixin desktop-down { // 0 - 1024
+  @media only screen and (max-width: $b-02-max) { @content; }
+}
+
+@mixin desktop-only { // 1025 - 1279
+  @media only screen and (min-width: $b-02) and (max-width: $b-03-max) { @content; }
+}
+
+@mixin desktop-up { // 1025 up
+  @media only screen and (min-width: $b-02) { @content; }
+}
+
+@mixin desktop-large-up { // 1280 up
+  @media only screen and (min-width: $b-03) { @content; }
+}
+
+@mixin desktop-larger-up { // 1680 up
+  @media only screen and (min-width: $b-05) { @content; }
+}
+
+// How to use it:
+// @include tablet-up {}
