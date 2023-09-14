@@ -1,3 +1,4 @@
 export default {
-    count: 1,
+    count: 11,
+    counterVal: 100
 };
