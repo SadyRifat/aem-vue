@@ -17,7 +17,7 @@
     "chokidar": "chokidar -c \"clientlib\" ./dist",
     "aemsyncro": "aemsync -w ../ui.apps/src/main/content",
     "watch:scss": "sass --watch ./src/main/aem-vue/site/style/styles.scss ./src/main/aem-vue/site/style/output.css --no-source-map",
-    "tailwind": "npx tailwindcss -i ./src/main/aem-vue/site/style/output.css -o ./src/main/aem-vue/site/main.scss --watch --no-source-map",
+    "tailwind": "npx tailwindcss -i ./src/main/aem-vue/site/style/output.css -o ./src/main/aem-vue/site/main-prod.scss --watch --no-source-map",
     "watch:fe": "npm-run-all --parallel watch:scss tailwind",
     "watch": "npm-run-all --parallel start chokidar aemsyncro"
   },
