@@ -1,0 +1,6 @@
+<sly data-sly-test="${wcmmode.edit}">
+    <div class="component-header"><span>${component.title}</span></div>
+</sly>
+
+<sly data-sly-use.model="com.aem.vue.core.models.RegistrationModel"/>
+<registration :model-data="${model.getJsonData}"></registration>

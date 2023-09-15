@@ -58,6 +58,32 @@ export const doLoginRequestByPassword = async (email: string, password: string) 
     }
 };
 
+export const doAnonymousAccess = async () => {
+    const anonymousAccessTokenParams: TokenGrantBaseParams = {
+        grant_type: 'client_credentials',
+        client_id: 'mobile_android',
+        client_secret: 'secret'
+    };
+
+    try {
+        const formData = new URLSearchParams(
+            Object.entries(anonymousAccessTokenParams).map(([key, value]) => [key, value])
+        );
+
+        const response = await axios.post(TOKEN_API_URL, formData, {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+        });
+        saveTokenResponseInLocal(response.data);
+
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching access token:', error);
+        return null;
+    }
+};
+
 export const saveTokenResponseInLocal = (tokenResponse: any) => {
     tokenResponse.expires_in = Date.now() + tokenResponse.expires_in;
     localStorage.setItem('hbk-auth', JSON.stringify(tokenResponse));
