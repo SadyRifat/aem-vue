@@ -2,6 +2,7 @@ import "./main-prod.scss";
 import HelloWorld from "../components/helloworld/main";
 import Login from "../components/login/main";
 import Counter from "../components/counter/main";
+import ProductDetails from "../components/productDetails/main";
 import AppStore from "../store";
 import Registration from "../components/registration/registration.main";
 
@@ -13,7 +14,8 @@ const app = createApp({
         HelloWorld,
         Login,
         Counter,
-        Registration
+        Registration,
+        ProductDetails
     }
 });
 
