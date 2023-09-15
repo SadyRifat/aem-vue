@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <script type="text/javascript" src="https://unpkg.com/vue@3.3.4/dist/vue.global.prod.js"></script>
     <script type="text/javascript" src="https://unpkg.com/vuex@4.0.0/dist/vuex.global.prod.js"></script>
+    <script src="https://unpkg.com/vue-router@4"></script>
     <link rel="stylesheet" href="/etc.clientlibs/aem-vue/clientlibs/clientlib-base.css" type="text/css">
     <script type="text/javascript" src="/etc.clientlibs/aem-vue/clientlibs/clientlib-dependencies.js"></script>
     <link rel="stylesheet" href="/etc.clientlibs/aem-vue/clientlibs/clientlib-dependencies.css" type="text/css">
@@ -31,7 +32,7 @@
                                         <div class="cmp-container">
                                             <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
                                                 <div class="hello-world aem-GridColumn aem-GridColumn--default--12">
-                                                    <!-- <hello-world :model-data="{ &quot;resourceType&quot;: &quot;aem-vue/components/helloworld&quot;, &quot;currentPagePath&quot;: &quot;/content/aem-vue/us/en&quot; }"></hello-world> -->
+                                                    <hello-world :model-data="{ &quot;resourceType&quot;: &quot;aem-vue/components/helloworld&quot;, &quot;currentPagePath&quot;: &quot;/content/aem-vue/us/en&quot; }"></hello-world>
                                                 </div>
                                             </div>
                                             <div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
@@ -51,23 +52,6 @@
                         </main>
                     </div>
 
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="columncontrol hbk-content">
-        <div class="column-control-wrapper">
-            <div>
-                <div class="container">
-                    <div class="grid grid-cols-12 gutter-gap  md:items-start mobile-no-break">
-                        <div class="col-span-full">
-                            <div class="cmp-container">
-                                <h1>This is heading 1</h1>
-                                <counter/>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
