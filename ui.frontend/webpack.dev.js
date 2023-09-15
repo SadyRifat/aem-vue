@@ -11,6 +11,9 @@ module.exports = env => {
 
     return merge(common, {
         mode: 'development',
+        entry: {
+            site: SOURCE_ROOT + '/site/main-dev.ts'
+        },
         performance: {
             hints: 'warning',
             maxAssetSize: 1048576,
@@ -37,6 +40,12 @@ module.exports = env => {
             devMiddleware: {
                 writeToDisk: writeToDisk
             }
+        },
+        resolve: {
+            fallback: {
+                "fs": false, // or provide a fallback module if needed
+                "path": false, // or provide a fallback module if needed
+            },
         }
     });
 }

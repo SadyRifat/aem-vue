@@ -1,8 +1,9 @@
-import "./main.scss"
+import "./main-prod.scss";
 import HelloWorld from "../components/helloworld/main";
 import Login from "../components/login/main";
 import Counter from "../components/counter/main";
 import AppStore from "../store";
+import Registration from "../components/registration/registration.main";
 
 const {createApp} = (window as any).Vue;
 
@@ -11,7 +12,8 @@ const app = createApp({
     components: {
         HelloWorld,
         Login,
-        Counter
+        Counter,
+        Registration
     }
 });
 

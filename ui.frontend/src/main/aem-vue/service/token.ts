@@ -1,4 +1,4 @@
-import {doLoginRequestByRefresh} from "../external/hybris/auth/auth";
+import {doAnonymousAccess, doLoginRequestByRefresh} from "../external/hybris/auth/auth";
 
 export const getLocalTokenResponse = () => {
     const tokenResponse = localStorage.getItem('hbk-auth');
@@ -25,7 +25,7 @@ export const getAccessToken = async () => {
         console.log("Token From refresh access");
         return doLoginRequestByRefresh(getLocalTokenResponse().refresh_token);
     } else {
-        console.log("Token return NULL");
-        return '';
+        console.log("Anonymous access");
+        return doAnonymousAccess();
     }
 };
