@@ -20,4 +20,4 @@ interface UserRegistrationModel {
     uid: string;
 }
 
-export { FormModel, CustomValidationError, UserRegistrationModel }
+export { FormModel, CustomValidationError, UserRegistrationModel };

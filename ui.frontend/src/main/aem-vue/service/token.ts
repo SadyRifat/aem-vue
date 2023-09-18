@@ -17,13 +17,14 @@ export const isAccessTokenExpired = () => {
 
 export const getAccessToken = async () => {
     const tokenStatus = isAccessTokenExpired();
-    console.log("Token STATUS: " + tokenStatus);
+    console.log("Token Expire STATUS: " + tokenStatus);
     if (tokenStatus === false) {
         console.log("Token From login access");
         return getLocalTokenResponse().access_token;
     } else if (tokenStatus === true) {
         console.log("Token From refresh access");
-        return doLoginRequestByRefresh(getLocalTokenResponse().refresh_token);
+        const accessResponse = await doLoginRequestByRefresh(getLocalTokenResponse().refresh_token);
+        return accessResponse.access_token;
     } else {
         console.log("Anonymous access");
         return doAnonymousAccess();

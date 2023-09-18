@@ -1,0 +1,53 @@
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 30px;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 15px;
+    width: 240px;
+    box-shadow: 0px 0px 16px 2px #eaeaea;
+    border-radius: 4px;
+
+    ul{
+        list-style-type: square;
+        list-style-position: inside;
+    }
+}
+.boxContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adjust the gap between items */
+    border: 1px solid #ccc;
+    
+    width: 100%; /* Adjust the width as needed */
+    margin: 0 auto 80px auto; /* Center the container horizontally */
+    box-shadow: 0px 0px 16px 2px #eaeaea;
+    border-radius: 4px;
+    position: relative;
+    &-header{
+        color: #00335a;
+        font-size: 24px;
+        font-weight: 600;
+        margin: 30px 0;
+        text-align: center;
+    }
+    &-title{
+        background: #f1f1f1;
+        padding: 15px;
+        text-align: center;
+    }
+    &-body{
+        padding: 20px;
+    }
+}
+.boxContainer::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #dedede;
+    bottom: -40px;
+    left: 0;
+    position: absolute;
+}

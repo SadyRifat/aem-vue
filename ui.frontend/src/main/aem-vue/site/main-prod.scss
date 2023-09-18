@@ -615,14 +615,6 @@ video {
   margin-bottom: 1rem;
 }
 
-.mt-2{
-  margin-top: 0.5rem;
-}
-
-.mt-4{
-  margin-top: 1rem;
-}
-
 .flex{
   display: -webkit-box;
   display: -ms-flexbox;
@@ -631,6 +623,13 @@ video {
 
 .min-w-\[50px\]{
   min-width: 50px;
+}
+
+.flex-row{
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .flex-col{
@@ -642,10 +641,6 @@ video {
 
 .rounded-none{
   border-radius: 0px;
-}
-
-.bg-\[color\:var\(--dark-blue\)\]{
-  background-color: var(--dark-blue);
 }
 
 .bg-cyan-500{
@@ -686,23 +681,11 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.shadow-lg{
-  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
-  -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-          box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
 .shadow-sm{
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
   -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
           box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-cyan-500\/50{
-  --tw-shadow-color: rgb(6 182 212 / 0.5);
-  --tw-shadow: var(--tw-shadow-colored);
 }
 
 .blur{
@@ -2528,62 +2511,6 @@ http://www.smashingmagazine.com/2014/06/12/sassy-z-index-management-for-complex-
   }
 }
 
-.helloworld {
-  border: 1px solid;
-  padding: 10px;
-  -webkit-box-shadow: 5px 10px #888888;
-          box-shadow: 5px 10px #888888;
-  background-color: green;
-}
-
-.abc{
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
-.cmp-title{
-  --tw-bg-opacity: 1;
-  background-color: rgb(133 77 14 / var(--tw-bg-opacity));
-}
-
-.boxContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 20px;
-  /* Adjust the gap between items */
-  border: 1px solid #ccc;
-  padding: 20px;
-  width: 100%;
-  /* Adjust the width as needed */
-  margin: 24px 0;
-  /* Center the container horizontally */
-  -webkit-box-shadow: 0px 0px 16px 2px #eaeaea;
-          box-shadow: 0px 0px 16px 2px #eaeaea;
-  border-radius: 4px;
-}
-
-/* Style each product block */
-
-.boxContainer > div {
-  background-color: #f0f0f0;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Style the product name */
-
-.boxContainer > div > div:nth-child(1) {
-  font-weight: bold;
-}
-
 label{
   border-width: 2px;
 }
@@ -2637,4 +2564,72 @@ button[type=submit]:hover {
   color: red;
   font-size: 14px;
   margin-top: 5px;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 30px;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 15px;
+  width: 240px;
+  -webkit-box-shadow: 0px 0px 16px 2px #eaeaea;
+          box-shadow: 0px 0px 16px 2px #eaeaea;
+  border-radius: 4px;
+}
+
+.sidebar ul {
+  list-style-type: square;
+  list-style-position: inside;
+}
+
+.boxContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+  /* Adjust the gap between items */
+  border: 1px solid #ccc;
+  width: 100%;
+  /* Adjust the width as needed */
+  margin: 0 auto 80px auto;
+  /* Center the container horizontally */
+  -webkit-box-shadow: 0px 0px 16px 2px #eaeaea;
+          box-shadow: 0px 0px 16px 2px #eaeaea;
+  border-radius: 4px;
+  position: relative;
+}
+
+.boxContainer-header {
+  color: #00335a;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 30px 0;
+  text-align: center;
+}
+
+.boxContainer-title {
+  background: #f1f1f1;
+  padding: 15px;
+  text-align: center;
+}
+
+.boxContainer-body {
+  padding: 20px;
+}
+
+.boxContainer::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #dedede;
+  bottom: -40px;
+  left: 0;
+  position: absolute;
 }

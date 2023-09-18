@@ -1597,47 +1597,6 @@ http://www.smashingmagazine.com/2014/06/12/sassy-z-index-management-for-complex-
     max-width: 1200px;
   }
 }
-.helloworld {
-  border: 1px solid;
-  padding: 10px;
-  box-shadow: 5px 10px #888888;
-  background-color: green;
-}
-
-.abc {
-  @apply text-4xl;
-}
-
-.cmp-title {
-  @apply bg-yellow-800;
-}
-
-.boxContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 20px; /* Adjust the gap between items */
-  border: 1px solid #ccc;
-  padding: 20px;
-  width: 100%; /* Adjust the width as needed */
-  margin: 24px 0; /* Center the container horizontally */
-  box-shadow: 0px 0px 16px 2px #eaeaea;
-  border-radius: 4px;
-}
-
-/* Style each product block */
-.boxContainer > div {
-  background-color: #f0f0f0;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Style the product name */
-.boxContainer > div > div:nth-child(1) {
-  font-weight: bold;
-}
-
 label {
   @apply border-2;
 }
@@ -1686,4 +1645,58 @@ button[type=submit]:hover {
   color: red;
   font-size: 14px;
   margin-top: 5px;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 30px;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 15px;
+  width: 240px;
+  box-shadow: 0px 0px 16px 2px #eaeaea;
+  border-radius: 4px;
+}
+.sidebar ul {
+  list-style-type: square;
+  list-style-position: inside;
+}
+
+.boxContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Adjust the gap between items */
+  border: 1px solid #ccc;
+  width: 100%; /* Adjust the width as needed */
+  margin: 0 auto 80px auto; /* Center the container horizontally */
+  box-shadow: 0px 0px 16px 2px #eaeaea;
+  border-radius: 4px;
+  position: relative;
+}
+.boxContainer-header {
+  color: #00335a;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 30px 0;
+  text-align: center;
+}
+.boxContainer-title {
+  background: #f1f1f1;
+  padding: 15px;
+  text-align: center;
+}
+.boxContainer-body {
+  padding: 20px;
+}
+
+.boxContainer::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #dedede;
+  bottom: -40px;
+  left: 0;
+  position: absolute;
 }
