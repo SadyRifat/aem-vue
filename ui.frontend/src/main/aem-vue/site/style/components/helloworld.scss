@@ -17,8 +17,10 @@
     gap: 20px; /* Adjust the gap between items */
     border: 1px solid #ccc;
     padding: 20px;
-    width: 1000px; /* Adjust the width as needed */
-    margin: 0 0; /* Center the container horizontally */
+    width: 100%; /* Adjust the width as needed */
+    margin: 24px 0; /* Center the container horizontally */
+    box-shadow: 0px 0px 16px 2px #eaeaea;
+    border-radius: 4px;
   }
   
   /* Style each product block */
@@ -34,5 +36,5 @@
   .boxContainer > div > div:nth-child(1) {
     font-weight: bold;
   }
-  p{color:red;}
+
   

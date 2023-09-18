@@ -9,8 +9,8 @@ export const resetCounter = ({ commit }: { commit: typeof Commit }) => {
 };
 
 export const increment = ({ commit }: { commit: typeof Commit }) => {
-    commit('INCREMENTVAL')
+    commit('INCREMENTVAL');
 }
 export const decrement = ({ commit }: { commit: typeof Commit }) => {
-    commit('DECREMENTVAL')
+    commit('DECREMENTVAL');
 }

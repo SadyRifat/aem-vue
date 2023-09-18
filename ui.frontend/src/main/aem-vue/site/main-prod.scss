@@ -610,6 +610,19 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.my-4{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.mt-2{
+  margin-top: 0.5rem;
+}
+
+.mt-4{
+  margin-top: 1rem;
+}
+
 .flex{
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2545,10 +2558,13 @@ http://www.smashingmagazine.com/2014/06/12/sassy-z-index-management-for-complex-
   /* Adjust the gap between items */
   border: 1px solid #ccc;
   padding: 20px;
-  width: 1000px;
+  width: 100%;
   /* Adjust the width as needed */
-  margin: 0 0;
+  margin: 24px 0;
   /* Center the container horizontally */
+  -webkit-box-shadow: 0px 0px 16px 2px #eaeaea;
+          box-shadow: 0px 0px 16px 2px #eaeaea;
+  border-radius: 4px;
 }
 
 /* Style each product block */
@@ -2568,15 +2584,8 @@ http://www.smashingmagazine.com/2014/06/12/sassy-z-index-management-for-complex-
   font-weight: bold;
 }
 
-p {
-  color: red;
-}
-
 label{
   border-width: 2px;
-  font-size: var(--hbk-font-size-6);
-  line-height: var(--hbk-line-height-40);
-  color: var(--mid-blue);
 }
 
 input{

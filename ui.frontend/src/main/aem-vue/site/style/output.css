@@ -1618,8 +1618,10 @@ http://www.smashingmagazine.com/2014/06/12/sassy-z-index-management-for-complex-
   gap: 20px; /* Adjust the gap between items */
   border: 1px solid #ccc;
   padding: 20px;
-  width: 1000px; /* Adjust the width as needed */
-  margin: 0 0; /* Center the container horizontally */
+  width: 100%; /* Adjust the width as needed */
+  margin: 24px 0; /* Center the container horizontally */
+  box-shadow: 0px 0px 16px 2px #eaeaea;
+  border-radius: 4px;
 }
 
 /* Style each product block */
@@ -1636,12 +1638,8 @@ http://www.smashingmagazine.com/2014/06/12/sassy-z-index-management-for-complex-
   font-weight: bold;
 }
 
-p {
-  color: red;
-}
-
 label {
-  @apply border-2 text-[length:var(--hbk-font-size-6)] text-[color:var(--mid-blue)] leading-[var(--hbk-line-height-40)];
+  @apply border-2;
 }
 
 input {

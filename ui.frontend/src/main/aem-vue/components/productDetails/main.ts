@@ -9,19 +9,22 @@ const ProductDetails = defineComponent({
     template: ProductDetailsTemplate.template, props: {
         modelData: String
     }, setup() {
-        const PDrating = {name: 34};
+        const PDrating = ref('0');
+        const PDName = ref('');
+        const PDSummary = ref('');
+        const PDCode = ref('');
+        const PDPrice = ref('');
         const productDetailsInfo = async () => {
             const pdResponse = await productDetail();
+            PDrating.value = pdResponse.averageRating;
+            PDName.value = pdResponse.name;
+            PDSummary.value = pdResponse.summary;
+            PDCode.value = pdResponse.code;
+            PDPrice.value = pdResponse.price;
             console.log(pdResponse);
-            PDrating.name = pdResponse.averageRating;
-            const availableForPickup = pdResponse.availableForPickup;
-            //return PDrating;
-            //console.log(PDrating.name);
-            //cartList.value = cartResponse.entries;
-            //grandTotal.value = cartResponse.totalPriceWithTax.formattedValue;
         };
-        //console.log(PDrating.name);
-        return {productDetailsInfo, PDrating};
+        console.log('pass' + PDrating);
+        return {PDrating, PDName, PDSummary, PDCode, PDPrice, productDetailsInfo};
     }, mounted() {
         this.productDetailsInfo();
     }
