@@ -3,6 +3,7 @@ import HelloWorld from "../components/helloworld/main";
 import Login from "../components/login/main";
 import AppStore from "../store";
 import Registration from "../components/registration/registration.main";
+import UserProfile from "../components/user-profile/profile.main";
 
 const {createApp} = (window as any).Vue;
 
@@ -11,7 +12,8 @@ const app = createApp({
     components: {
         HelloWorld,
         Login,
-        Registration
+        Registration,
+        UserProfile
     }
 });
 

@@ -4,8 +4,8 @@ const RegistrationTemplate = {
                       <label for="title">{{ modelData.titleLabel }}</label>
                       <select id="title" v-model="form.title" @change="validate('title')">
                         <option value="" disabled> {{modelData.titleLabel}} </option>
-                        <option v-for="titleOption in modelData.titleItems" :value="titleOption.type">
-                          {{ titleOption.text }}
+                        <option v-for="titleOption in modelData.titleItems" :value="titleOption.value">
+                          {{ titleOption.name }}
                         </option>
                       </select>
                       <p v-if="errors.title">{{ errors.title }}</p>
