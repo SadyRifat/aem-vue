@@ -1,5 +1,4 @@
 import ProductDetailsTemplate from './template';
-import AppStore from "../../store";
 import {productDetail} from "../../external/hybris/productDetails/pd";
 
 const {ref} = (window as any).Vue;

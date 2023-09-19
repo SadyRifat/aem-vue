@@ -1,6 +1,6 @@
 import CountTemplate from './template';
 import AppStore from "../../store/index";
-const { ref, defineComponent } = (window as any).Vue;
+const { defineComponent } = (window as any).Vue;
 
 const Counter = defineComponent({
     template: CountTemplate.template,
