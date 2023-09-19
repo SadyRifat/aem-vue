@@ -1,4 +1,18 @@
 export default {
+    "countryItems":[
+        {
+            "value":"CA",
+            "name":"Canada"
+        },
+        {
+            "value":"DE",
+            "name":"Germany"
+        },
+        {
+            "value":"IT",
+            "name":"Italy"
+        }
+    ],
     "titleLabel":"Title",
     "titleItems":[
         {
@@ -14,6 +28,7 @@ export default {
             "name":"Ms."
         }
     ],
+    "countryLabel":"Country/Region",
     "line1Label":"Address Line 1",
     "line2Label":"Address Line 2",
     "townLabel":"City",

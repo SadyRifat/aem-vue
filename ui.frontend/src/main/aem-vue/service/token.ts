@@ -24,6 +24,7 @@ export const getAccessToken = async () => {
     } else if (tokenStatus === true) {
         console.log("Token From refresh access");
         const accessResponse = await doLoginRequestByRefresh(getLocalTokenResponse().refresh_token);
+        console.log("New Access Token: " + accessResponse.access_token);
         return accessResponse.access_token;
     } else {
         console.log("Anonymous access");

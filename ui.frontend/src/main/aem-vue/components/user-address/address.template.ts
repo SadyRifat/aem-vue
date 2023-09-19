@@ -2,6 +2,16 @@ const UserAddressTemplate = {
     template: `<div>
                     <form @submit.prevent="submitForm">
                         <div>
+                            <label>{{ modelData.countryLabel }}</label>
+                            <select v-model="form.country.isocode" @change="validate('country')">
+                                <option value="" disabled> {{modelData.countryLabel}} </option>
+                                <option v-for="country in modelData.countryItems" :value="country.value">
+                                    {{ country.name }}
+                                </option>
+                            </select>
+                            <p v-if="errors.title">{{ errors.country }}</p>
+                        </div>
+                        <div>
                             <label>{{ modelData.titleLabel }}</label>
                             <select v-model="form.titleCode" @change="validate('title')">
                                 <option value="" disabled> {{modelData.titleLabel}} </option>

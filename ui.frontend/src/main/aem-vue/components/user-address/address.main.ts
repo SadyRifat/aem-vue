@@ -24,8 +24,9 @@ const UserAddress = defineComponent({
             postalCode: '',
             titleCode: '',
             town: '',
-            isocode: '',
-            region: ''
+            country: {
+                isocode: '',
+            }
         });
         const addressList = ref([]);
         const errors = ref({});
@@ -50,8 +51,8 @@ const UserAddress = defineComponent({
             const userAddressListResponse = await addressAction.getUserAddressList();
             addressList.value = userAddressListResponse.addresses.map((address: any) => ({
                 ...address,
-                country: { isocode: address.country.isocode },
-                region: { isocode: address.region.isocode },
+                // country: { isocode: address.country.isocode },
+                // region: { isocode: address.region.isocode },
             }));
         };
 
