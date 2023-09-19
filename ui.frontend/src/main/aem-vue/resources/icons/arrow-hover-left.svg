@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="16px" viewBox="0 0 21 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>0 Icon-HBK/Arrow</title>
+    <g id="HBK---Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1.2-Button-icon/narrow/primary/hover" transform="translate(-89.000000, -4.000000)" fill="#33B6B1">
+            <g id="Group" transform="translate(89.000000, 4.000000)">
+                <g id="0-Icon-HBK/Arrow" transform="translate(10.500000, 8.000000) rotate(-180.000000) translate(-10.500000, -8.000000) ">
+                    <polygon id="Arrow-Hover" points="13 0 11.545 1.455 17.051 6.961 0 6.961 0 9.039 17.052 9.039 11.546 14.545 13 16 21 8"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
