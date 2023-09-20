@@ -8,7 +8,8 @@ export const RESET = (state: { count: number }) => {
 
 export const INCREMENTVAL = (state: { counterVal: number}) => {
     state.counterVal++;
-}
+};
+
 export const DECREMENTVAL = (state: { counterVal: number}) => {
     state.counterVal--;
 }
