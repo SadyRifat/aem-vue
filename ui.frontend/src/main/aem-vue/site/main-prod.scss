@@ -615,16 +615,16 @@ video {
   margin-bottom: 1rem;
 }
 
+.mb-2{
+  margin-bottom: 0.5rem;
+}
+
 .mb-4{
   margin-bottom: 1rem;
 }
 
 .mt-4{
   margin-top: 1rem;
-}
-
-.mb-2{
-  margin-bottom: 0.5rem;
 }
 
 .flex{
@@ -2571,7 +2571,7 @@ button[type=submit]:hover {
 }
 
 .product-details__img {
-  width: 40%;
+  width: 50%;
   padding: 0 16px;
 }
 
@@ -2585,7 +2585,7 @@ button[type=submit]:hover {
 }
 
 .product-details__content {
-  width: 60%;
+  width: 50%;
   padding: 0 16px;
 }
 

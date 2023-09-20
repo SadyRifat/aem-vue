@@ -1,11 +1,12 @@
 const ProductDetailsTemplate = {
+    /*html*/
     template: `<div class="product-details">
                     <div class="product-details__wrapper">
                         <div class="product-details__img">
                             <div>
                                 <img :src='PDImg' />
                             </div>
-                            <div>
+                            <div> 
                                 <ul class="product-details__img-gallery">
                                     <li v-for="item in AllImg">
                                         <div v-if='item.format == "thumbnail"'>
@@ -52,18 +53,19 @@ const ProductDetailsTemplate = {
                             </div> 
 
                             <div class="product-details__cart-adding">
-                                <button class="product-details__addtocart btn">Add to cart</button>
+                                <button @click="addToCartFunc(PDCode)" class="product-details__addtocart btn">Add to cart</button>
                                 <button class="product-details__addtowishlist">
                                     <span class="material-symbols-outlined">favorite</span>Add to wishlist
                                 </button>
                             </div>
                         </div>
                     </div>
-
                     <div class="mt-4">
                         <h5 class="mb-4">Product details</h5>
                         <p>{{PDDetails}}</p>
                     </div>
+
+                    <div class="">{{updateCart}}</div>
                 </div>
                 `,
     props: ['modelData']

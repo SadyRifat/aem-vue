@@ -11,3 +11,4 @@ export const productDetail = async () => {
     });
     return response.data;
 };
+

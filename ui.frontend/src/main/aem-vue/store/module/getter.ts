@@ -5,3 +5,8 @@ export const getCount = (state: { count: number }) => {
 export const getCounter = (state: { counterVal: number }) => {
     return state.counterVal;
 };
+
+export const getAddCart = (state: { cart: object }) => {
+    return state.cart;
+};
+

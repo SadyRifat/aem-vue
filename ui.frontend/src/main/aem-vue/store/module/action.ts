@@ -14,3 +14,8 @@ export const increment = ({ commit }: { commit: typeof Commit }) => {
 export const decrement = ({ commit }: { commit: typeof Commit }) => {
     commit('DECREMENTVAL');
 }
+
+//add to cart
+export const addToCart = ({ commit }: { commit: typeof Commit }, PDCode:number ) => {
+    commit('ADDTOCART', PDCode);
+}

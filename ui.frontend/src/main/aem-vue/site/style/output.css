@@ -1651,7 +1651,7 @@ button[type=submit]:hover {
   display: flex;
 }
 .product-details__img {
-  width: 40%;
+  width: 50%;
   padding: 0 16px;
 }
 .product-details__img-gallery {
@@ -1659,7 +1659,7 @@ button[type=submit]:hover {
   justify-content: center;
 }
 .product-details__content {
-  width: 60%;
+  width: 50%;
   padding: 0 16px;
 }
 .product-details__stock {

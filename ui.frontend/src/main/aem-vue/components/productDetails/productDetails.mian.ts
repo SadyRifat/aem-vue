@@ -1,14 +1,16 @@
-import ProductDetailsTemplate from './template';
+import ProductDetailsTemplate from './productDetails.template';
 import AppStore from "../../store";
-import {productDetail} from "../../external/hybris/productDetails/pd";
+import {productDetail} from "./productDetails.api.data";
+import { object } from 'yup';
 
 const {ref} = (window as any).Vue;
 const {defineComponent} = (window as any).Vue;
 
 const ProductDetails = defineComponent({
     template: ProductDetailsTemplate.template, props: {
-        modelData: String
+        modelData: object
     }, setup() {
+        const PDData = ref([]);
         const PDrating = ref('0');
         const PDName = ref('');
         const PDSummary = ref('');
@@ -21,6 +23,7 @@ const ProductDetails = defineComponent({
         const imgURL = 'https://40.76.109.9:9002';
         const productDetailsInfo = async () => {
             const pdResponse = await productDetail();
+            PDData.value = pdResponse;
             PDrating.value = pdResponse.averageRating;
             PDName.value = pdResponse.name;
             PDSummary.value = pdResponse.summary;
@@ -31,13 +34,28 @@ const ProductDetails = defineComponent({
             //PDImg.value = pdResponse.images[0].url;
             PDDetails.value = pdResponse.description; 
             PDStock.value = pdResponse.stock; 
-            console.log(pdResponse);
-            console.log(AllImg.value);
+            //console.log(pdResponse);
+            //console.log(AllImg.value);
         };
-        console.log('pass' + PDrating);
-        return {PDrating, PDName, PDSummary, PDCode, PDPrice, PDImg, AllImg, imgURL, PDDetails, PDStock, productDetailsInfo};
-    }, mounted() {
+        //console.log('pass' + PDrating);
+        //console.log(PDData);
+        //console.log('pick' + PDData.availableForPickup);
+        //console.log(AppStore.state.cart)
+        return {PDData, PDrating, PDName, PDSummary, PDCode, PDPrice, PDImg, AllImg, imgURL, PDDetails, PDStock, productDetailsInfo};
+    },
+    methods: {
+        addToCartFunc(PDCode: object){
+            AppStore.dispatch('addToCart', PDCode);
+            console.log(PDCode);
+        }
+    },
+    mounted() {
         this.productDetailsInfo();
+    },
+    computed: {
+        updateCart() {
+            return AppStore.getters.getAddCart;
+        }
     }
 });
 

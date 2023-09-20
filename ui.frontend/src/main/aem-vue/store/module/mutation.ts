@@ -12,3 +12,9 @@ export const INCREMENTVAL = (state: { counterVal: number}) => {
 export const DECREMENTVAL = (state: { counterVal: number}) => {
     state.counterVal--;
 }
+
+export const ADDTOCART = (state: { cart: any}, payload:number) => {
+    console.log('payload' + payload);
+    console.log('cart' + state.cart);
+    state.cart = payload;
+}
