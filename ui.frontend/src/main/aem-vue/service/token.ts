@@ -15,19 +15,36 @@ export const isAccessTokenExpired = () => {
     return Date.now() >= parseInt(tokenResponse.expires_in);
 };
 
-export const getAccessToken = async () => {
+
+let tokenRefreshPromise: Promise<string | void> | null = null;
+
+export const getAccessToken = async (): Promise<string> => {
+    if (tokenRefreshPromise) {
+        return tokenRefreshPromise as Promise<string>;
+    }
+
     const tokenStatus = isAccessTokenExpired();
     console.log("Token Expire STATUS: " + tokenStatus);
+
     if (tokenStatus === false) {
         console.log("Token From login access");
-        return getLocalTokenResponse().access_token;
+        return Promise.resolve(getLocalTokenResponse().access_token);
     } else if (tokenStatus === true) {
         console.log("Token From refresh access");
-        const accessResponse = await doLoginRequestByRefresh(getLocalTokenResponse().refresh_token);
-        console.log("New Access Token: " + accessResponse.access_token);
-        return accessResponse.access_token;
+
+        // Start a token refresh request
+        tokenRefreshPromise = doLoginRequestByRefresh(getLocalTokenResponse().refresh_token)
+            .then((accessResponse) => {
+                console.log("New Access Token: " + accessResponse.access_token);
+                return accessResponse.access_token;
+            })
+            .finally(() => {
+                tokenRefreshPromise = null;
+            });
+
+        return tokenRefreshPromise as Promise<string>;
     } else {
         console.log("Anonymous access");
-        return doAnonymousAccess();
+        return Promise.resolve(doAnonymousAccess());
     }
 };
