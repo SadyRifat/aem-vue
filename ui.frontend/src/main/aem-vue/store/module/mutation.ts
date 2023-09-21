@@ -14,8 +14,22 @@ export const DECREMENTVAL = (state: { counterVal: number}) => {
     state.counterVal--;
 }
 
-export const ADDTOCART = (state: { cart: any}, payload:number) => {
-    console.log('payload' + payload);
-    console.log('cart' + state.cart);
-    state.cart = payload;
+export const ADDTOCART = (state: { cart: any}, productID: number, PDCount: number) => {
+
+    //find the product in the products list
+    //const product = state.products.find((product:any) => product.id === productID);
+    console.log('productCount store' + PDCount);
+    //find the product in the cart list
+    const cartProduct = state.cart.find((product:any) => product.id === productID)
+
+    if(cartProduct){
+        cartProduct.qty++;
+    }
+    else{
+        state.cart.push({
+            id: productID,
+            qty: 1
+        })
+        console.log('cart' + state.cart);
+    }
 }

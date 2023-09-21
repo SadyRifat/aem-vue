@@ -16,6 +16,6 @@ export const decrement = ({ commit }: { commit: typeof Commit }) => {
 }
 
 //add to cart
-export const addToCart = ({ commit }: { commit: typeof Commit }, PDCode:number ) => {
-    commit('ADDTOCART', PDCode);
+export const addToCart = ({ commit }: { commit: typeof Commit }, PDCode:number, productCount:number ) => {
+    commit('ADDTOCART', PDCode, productCount);
 }

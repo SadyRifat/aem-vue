@@ -28,10 +28,11 @@ const ProductDetailsTemplate = {
                             <p class="mb-2"><b>Qty<b></p>
                             <div class="flex">
                                 <div class="product-details__add-to-cart">
-                                    <button type="button" tabindex="0" aria-label="Remove one"> - </button>
-                                    <input type="number" step="1" tabindex="0" aria-label="Quantity" class="" min="1" max="285" value="1">
-                                    <button type="button" tabindex="0" aria-label="Add one more"> + </button>
+                                    <button type="button" tabindex="0" aria-label="Remove one" @click={IncProductCount}> - </button>
+                                    <input type="number" step="1" tabindex="0" aria-label="Quantity" class="" min="1" max="50" v-model="productCount">
+                                    <button type="button" tabindex="0" aria-label="Add one more" @click={DecProductCount}> + </button>
                                 </div>
+                                <p>{{productCount}}</p>
                                 <div class="product-details__stock">
                                     <p>{{PDStock.stockLevelStatus}}</p>
                                 </div>
@@ -53,7 +54,7 @@ const ProductDetailsTemplate = {
                             </div> 
 
                             <div class="product-details__cart-adding">
-                                <button @click="addToCartFunc(PDCode)" class="product-details__addtocart btn">Add to cart</button>
+                                <button @click="addToCartFunc(PDCode, productCount)" class="product-details__addtocart btn">Add to cart</button>
                                 <button class="product-details__addtowishlist">
                                     <span class="material-symbols-outlined">favorite</span>Add to wishlist
                                 </button>
@@ -62,7 +63,7 @@ const ProductDetailsTemplate = {
                     </div>
                     <div class="mt-4">
                         <h5 class="mb-4">Product details</h5>
-                        <p>{{PDDetails}}</p>
+                        <p v-html="PDDetails"></p>
                     </div>
 
                     <div class="">{{updateCart}}</div>

@@ -10,6 +10,7 @@ const ProductDetails = defineComponent({
     template: ProductDetailsTemplate.template, props: {
         modelData: object
     }, setup() {
+        const productCount = ref(1);
         const PDData = ref([]);
         const PDrating = ref('0');
         const PDName = ref('');
@@ -41,12 +42,13 @@ const ProductDetails = defineComponent({
         //console.log(PDData);
         //console.log('pick' + PDData.availableForPickup);
         //console.log(AppStore.state.cart)
-        return {PDData, PDrating, PDName, PDSummary, PDCode, PDPrice, PDImg, AllImg, imgURL, PDDetails, PDStock, productDetailsInfo};
+        return {PDData, PDrating, PDName, PDSummary, PDCode, PDPrice, PDImg, AllImg, imgURL, PDDetails, PDStock, productCount, productDetailsInfo};
     },
     methods: {
-        addToCartFunc(PDCode: object){
-            AppStore.dispatch('addToCart', PDCode);
+        addToCartFunc(PDCode: number, productCount:number){
+            AppStore.dispatch('addToCart', PDCode, productCount);
             console.log(PDCode);
+            console.log('productCount' + productCount);
         }
     },
     mounted() {
@@ -55,7 +57,10 @@ const ProductDetails = defineComponent({
     computed: {
         updateCart() {
             return AppStore.getters.getAddCart;
-        }
+        },
+        // IncProductCount() {
+        //     return productCount++;
+        // }
     }
 });
 
