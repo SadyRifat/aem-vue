@@ -30,8 +30,8 @@ const ProductDetails = defineComponent({
             PDCode.value = pdResponse.code;
             PDPrice.value = pdResponse.price;
             AllImg.value = pdResponse.images;
-            PDImg.value = 'https://40.76.109.9:9002/medias/?context=bWFzdGVyfGltYWdlc3wyNjE4MXxpbWFnZS9qcGVnfGFXMWhaMlZ6TDJnM09DOW9NRGt2T0RjNU56SXpORFUyTVRBMU5DNXFjR2N8YzI4NjgzY2Y1ZjYyNmY0NzhjY2Y2ODZhN2U0MDhmMDFlNjdiOWMxOTk1NDkzODcwMzc5ZGYxM2ViZDg1ZWVkMA';
-            //PDImg.value = pdResponse.images[0].url;
+            //PDImg.value = 'https://40.76.109.9:9002/medias/?context=bWFzdGVyfGltYWdlc3wyNjE4MXxpbWFnZS9qcGVnfGFXMWhaMlZ6TDJnM09DOW9NRGt2T0RjNU56SXpORFUyTVRBMU5DNXFjR2N8YzI4NjgzY2Y1ZjYyNmY0NzhjY2Y2ODZhN2U0MDhmMDFlNjdiOWMxOTk1NDkzODcwMzc5ZGYxM2ViZDg1ZWVkMA';
+            PDImg.value = pdResponse.images[0].url;
             PDDetails.value = pdResponse.description; 
             PDStock.value = pdResponse.stock; 
             //console.log(pdResponse);

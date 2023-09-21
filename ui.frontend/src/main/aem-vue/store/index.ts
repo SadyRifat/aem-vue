@@ -8,7 +8,7 @@ const { createStore } = (window as any).Vuex;
 const storedState = JSON.parse(localStorage.getItem('vuex_state') || 'null');
 
 const AppStore: any = createStore({
-    devtools: false,
+    devtools: true,
     state: storedState || state,
     getters,
     mutations,

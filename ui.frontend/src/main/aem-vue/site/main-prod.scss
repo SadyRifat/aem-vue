@@ -2681,19 +2681,35 @@ button[type=submit]:hover {
 .sidebar {
   position: fixed;
   left: 0;
-  top: 30px;
+  top: 0;
   background: #fff;
   border: 1px solid #ccc;
-  padding: 15px;
+  padding: 40px 0;
   width: 240px;
   -webkit-box-shadow: 0px 0px 16px 2px #eaeaea;
           box-shadow: 0px 0px 16px 2px #eaeaea;
   border-radius: 4px;
+  height: 100%;
+  background-color: #00335a;
 }
 
 .sidebar ul {
-  list-style-type: square;
-  list-style-position: inside;
+  list-style: none;
+}
+
+.sidebar ul > li > a {
+  display: block;
+  color: #ffffff;
+  padding: 10px 10px;
+  text-decoration: none;
+}
+
+.sidebar ul > li > a:hover {
+  background-color: #2ea39f;
+}
+
+.sidebar ul > li > a.active {
+  background-color: #2ea39f;
 }
 
 .boxContainer {
@@ -2733,6 +2749,14 @@ button[type=submit]:hover {
 
 .boxContainer-body {
   padding: 20px;
+}
+
+.boxContainer.hidden {
+  display: none;
+}
+
+.boxContainer.block {
+  display: block;
 }
 
 .boxContainer::after {

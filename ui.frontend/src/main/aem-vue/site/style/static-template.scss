@@ -1,17 +1,32 @@
 .sidebar {
     position: fixed;
     left: 0;
-    top: 30px;
+    top: 0;
     background: #fff;
     border: 1px solid #ccc;
-    padding: 15px;
+    padding: 40px 0;
     width: 240px;
     box-shadow: 0px 0px 16px 2px #eaeaea;
     border-radius: 4px;
+    height: 100%;
+    background-color: #00335a;
 
     ul{
-        list-style-type: square;
-        list-style-position: inside;
+        list-style: none;
+        &>li{
+            &>a{
+                display: block;
+                color: #ffffff;
+                padding: 10px 10px;
+                text-decoration: none;
+                &:hover{
+                    background-color: #2ea39f;
+                }
+                &.active{
+                    background-color: #2ea39f;
+                }
+            }
+        }
     }
 }
 .boxContainer {
@@ -39,6 +54,12 @@
     }
     &-body{
         padding: 20px;
+    }
+    &.hidden{
+        display: none;
+    }
+    &.block{
+        display: block;
     }
 }
 .boxContainer::after {

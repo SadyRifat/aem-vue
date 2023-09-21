@@ -5,6 +5,7 @@
     <title>Static Frontend file</title>
     <meta name="template" content="page-content"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <script type="text/javascript" src="./resource/static-helper.js"></script>
     <script type="text/javascript" src="https://unpkg.com/vue@3.3.4/dist/vue.global.prod.js"></script>
     <script type="text/javascript" src="https://unpkg.com/vuex@4.0.0/dist/vuex.global.prod.js"></script>
     <link rel="stylesheet" href="/etc.clientlibs/aem-vue/clientlibs/clientlib-base.css" type="text/css">
@@ -17,11 +18,11 @@
     <div class="columncontrol">
         <div class="sidebar">
             <ul>
-                <li><a href="#login">Login</a></li>
-                <li><a href="#registration">Registration</a></li>
-                <li><a href="#profile">User Profile</a></li>
-                <li><a href="#productDetails">Product Details</a></li>
-                <li><a href="#address">Address</a></li>
+                <li><a onClick="clickHandle(this); return false;" class="active sidebar-link" href="#login">Login</a></li>
+                <li><a onClick="clickHandle(this); return false;" class="sidebar-link" href="#registration">Registration</a></li>
+                <li><a onClick="clickHandle(this); return false;" class="sidebar-link" href="#profile">User Profile</a></li>
+                <li><a onClick="clickHandle(this); return false;" class="sidebar-link" href="#productDetails">Product Details</a></li>
+                <li><a onClick="clickHandle(this); return false;" class="sidebar-link" href="#address">Address</a></li>
             </ul>
         </div>
         <div class="container">
@@ -34,7 +35,7 @@
                         </div>
                         <div class="container">
                             <div>
-                                <div class="boxContainer" id="login">
+                                <div class="boxContainer hidden" id="login">
                                     <div class="boxContainer-title">
                                         <h5>Login</h5>
                                     </div>
@@ -42,7 +43,7 @@
                                         <login :model-data="{ &quot;email&quot;: &quot;Enter Email&quot;, &quot;password&quot;: &quot;Enter Password&quot;, &quot;submitLabel&quot;: &quot;Submit&quot; }"></login>
                                     </div>
                                 </div>
-                                <div class="boxContainer" id="registration">
+                                <div class="boxContainer hidden" id="registration">
                                     <div class="boxContainer-title">
                                         <h5>Registration</h5>
                                     </div>
@@ -50,7 +51,7 @@
                                         <registration :model-data=""></registration>
                                     </div>
                                 </div>
-                                <div class="boxContainer" id="profile">
+                                <div class="boxContainer hidden" id="profile">
                                     <div class="boxContainer-title">
                                         <h5>User Profile</h5>
                                     </div>
@@ -58,7 +59,7 @@
                                         <user-profile :model-data=""></user-profile>
                                     </div>
                                 </div>
-                                <div class="boxContainer" id="productDetails">
+                                <div class="boxContainer hidden" id="productDetails">
                                     <div class="boxContainer-title">
                                         <h5>Product Details</h5>
                                     </div>
@@ -66,7 +67,7 @@
                                         <product-details :model-data=""></product-details>
                                     </div>
                                 </div>
-                                <div class="boxContainer" id="address">
+                                <div class="boxContainer hidden" id="address">
                                     <div class="boxContainer-title">
                                         <h5>Address</h5>
                                     </div>
@@ -87,6 +88,32 @@
         </div>
     </div>
 </div>
+<script>
+
+    let activeItem = document.querySelector('.sidebar-link.active').getAttribute('href');
+    activeItem = activeItem.substring(1);
+    document.getElementById(activeItem).classList.remove('hidden');
+    document.getElementById(activeItem).classList.add('block');
+
+    function clickHandle(obj){
+        let clickID = obj.getAttribute("href");
+        clickID = clickID.substring(1);
+
+        document.querySelectorAll('.sidebar-link').forEach((item) => {
+            item.classList.remove('active');
+        });
+        
+        obj.classList.add('active');
+
+        document.querySelectorAll('.boxContainer').forEach((item) => {
+            item.classList.remove('block');
+            item.classList.add('hidden');
+        });
+        document.getElementById(clickID).classList.remove('hidden');
+        document.getElementById(clickID).classList.add('block');
+        return false;
+    }
+</script>
 <script type="text/javascript" src="/etc.clientlibs/aem-vue/clientlibs/clientlib-site.js"></script>
 </body>
 </html>
