@@ -7,6 +7,7 @@ import AppStore from "../store";
 import Registration from "../components/registration/registration.main";
 import UserProfile from "../components/user-profile/profile.main";
 import UserAddress from "../components/user-address/address.main";
+import Cart from "../components/cart/cart.main";
 
 const {createApp} = (window as any).Vue;
 
@@ -19,7 +20,8 @@ const app = createApp({
         Registration,
         ProductDetails,
         UserProfile,
-        UserAddress
+        UserAddress,
+        Cart
     }
 });
 

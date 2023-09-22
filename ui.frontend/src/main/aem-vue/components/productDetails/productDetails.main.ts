@@ -1,14 +1,14 @@
 import ProductDetailsTemplate from './productDetails.template';
 import AppStore from "../../store";
 import {productDetail} from "./productDetails.api.data";
-import { object } from 'yup';
+import {ProductModel} from './productDetails.model';
 
 const {ref} = (window as any).Vue;
 const {defineComponent} = (window as any).Vue;
 
 const ProductDetails = defineComponent({
     template: ProductDetailsTemplate.template, props: {
-        modelData: object
+        modelData: Object
     }, setup() {
         const productCount = ref(1);
         const PDData = ref([]);
@@ -42,13 +42,19 @@ const ProductDetails = defineComponent({
         //console.log(PDData);
         //console.log('pick' + PDData.availableForPickup);
         //console.log(AppStore.state.cart)
+        
+        //console.log(payload);
         return {PDData, PDrating, PDName, PDSummary, PDCode, PDPrice, PDImg, AllImg, imgURL, PDDetails, PDStock, productCount, productDetailsInfo};
     },
     methods: {
-        addToCartFunc(PDCode: number, productCount:number){
-            AppStore.dispatch('addToCart', PDCode, productCount);
-            console.log(PDCode);
-            console.log('productCount' + productCount);
+        addToCartFunc({PDCode, productCount}:ProductModel){
+            localStorage.setItem("Cart_PD_ID", PDCode);
+            AppStore.dispatch('addToCart', {PDCode, productCount});
+            console.log({PDCode, productCount});
+        },
+        IncProductCount(productCount:number) {
+            console.log(productCount);
+            return productCount = productCount + 1;
         }
     },
     mounted() {
@@ -57,10 +63,7 @@ const ProductDetails = defineComponent({
     computed: {
         updateCart() {
             return AppStore.getters.getAddCart;
-        },
-        // IncProductCount() {
-        //     return productCount++;
-        // }
+        }
     }
 });
 

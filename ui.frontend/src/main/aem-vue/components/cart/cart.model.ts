@@ -1,4 +1,4 @@
-interface ProductModel {
+interface CartModel {
     PDData: object;
     PDrating: number;
     PDName: string;
@@ -14,5 +14,4 @@ interface ProductModel {
     productID: number;
     PDCount: number;
 }
-export { ProductModel };
-
+export { CartModel };

@@ -1,3 +1,5 @@
+import { ProductModel } from "../../components/productDetails/productDetails.model";
+
 const {Commit} = (window as any).Vuex;
 
 export const incrementCounter = ({ commit }: { commit: typeof Commit }) => {
@@ -16,6 +18,6 @@ export const decrement = ({ commit }: { commit: typeof Commit }) => {
 }
 
 //add to cart
-export const addToCart = ({ commit }: { commit: typeof Commit }, PDCode:number, productCount:number ) => {
-    commit('ADDTOCART', PDCode, productCount);
+export const addToCart = ({ commit }: { commit: typeof Commit }, {PDCode, productCount}: ProductModel ) => {
+    commit('ADDTOCART', {PDCode, productCount});
 }

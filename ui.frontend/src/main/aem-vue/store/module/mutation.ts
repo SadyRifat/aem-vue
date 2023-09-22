@@ -1,3 +1,5 @@
+import { ProductModel } from "../../components/productDetails/productDetails.model";
+
 export const INCREMENT = (state: { count: number }) => {
     state.count++;
 };
@@ -12,24 +14,23 @@ export const INCREMENTVAL = (state: { counterVal: number}) => {
 
 export const DECREMENTVAL = (state: { counterVal: number}) => {
     state.counterVal--;
-}
+};
 
-export const ADDTOCART = (state: { cart: any}, productID: number, PDCount: number) => {
+export const ADDTOCART = (state: { cart: any}, {PDCode, productCount}: ProductModel) => {
 
-    //find the product in the products list
-    //const product = state.products.find((product:any) => product.id === productID);
-    console.log('productCount store' + PDCount);
-    //find the product in the cart list
-    const cartProduct = state.cart.find((product:any) => product.id === productID)
+    console.log('store count ' + productCount);
+    console.log('store ID ' + PDCode);
+    const cartProduct = state.cart.find((product:any) => product.id === PDCode);
 
     if(cartProduct){
-        cartProduct.qty++;
+        cartProduct.qty = cartProduct.qty + productCount;
+        console.log(cartProduct.qty);
     }
     else{
         state.cart.push({
-            id: productID,
-            qty: 1
-        })
+            id: PDCode,
+            qty: productCount
+        });
         console.log('cart' + state.cart);
     }
-}
+};
