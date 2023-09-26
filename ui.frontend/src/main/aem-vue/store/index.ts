@@ -1,21 +1,33 @@
-import state from './module/state';
-import * as getters from './module/getter';
-import * as mutations from './module/mutation';
-import * as actions from './module/action';
+// import { defineStore } from "pinia"; 
+const { defineStore } = (window as any).Pinia;
+import { ProductModel } from "../components/productDetails/productDetails.model";
 
-const { createStore } = (window as any).Vuex;
-
-const storedState = JSON.parse(localStorage.getItem('vuex_state') || 'null');
-
-const AppStore: any = createStore({
-    devtools: true,
-    state: storedState || state,
-    getters,
-    mutations,
-    actions,
+export const useMainStore = defineStore('mainStore', {
+    state: () => ({
+        products: [],
+        cart: [{"id":"341131", "qty": "2"}] as object[],
+        loading: false,
+        name: "Riaz"
+    }),
+    getters: {
+        // Define getters here if needed
+    },
+    actions: {
+        // Define actions here if needed
+        addToCartFunc (this: ReturnType<any>, PDCode: any, productCount: ProductModel) {
+            console.log(this.cart);
+            localStorage.setItem("Cart_PD_ID", PDCode);
+            const cartProduct = this.cart.find((product:any) => product.id === PDCode);
+        
+            if(cartProduct){
+                cartProduct.qty = cartProduct.qty + productCount;
+            }
+            else{
+                this.cart.push({
+                    id: PDCode,
+                    qty: productCount
+                });
+            }
+        }
+    }
 });
-
-AppStore.subscribe((mutation: any, state: any) => {
-    localStorage.setItem('vuex_state', JSON.stringify(state));
-});
-export default AppStore;

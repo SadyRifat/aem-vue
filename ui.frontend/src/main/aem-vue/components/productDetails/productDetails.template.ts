@@ -1,6 +1,7 @@
 const ProductDetailsTemplate = {
     /*html*/
-    template: `<div class="product-details">
+    template: `<p>{{mainStore.name}}</p>
+    <div class="product-details">
                     <div class="product-details__wrapper">
                         <div class="product-details__img">
                             <div>
@@ -28,9 +29,9 @@ const ProductDetailsTemplate = {
                             <p class="mb-2"><b>Qty<b></p>
                             <div class="flex">
                                 <div class="product-details__add-to-cart">
-                                    <button type="button" tabindex="0" aria-label="Remove one" @click="IncProductCount(productCount)"> - </button>
+                                    <button type="button" tabindex="0" aria-label="Remove one" @click="productCount--"> - </button>
                                     <input type="number" step="1" tabindex="0" aria-label="Quantity" class="" min="1" max="50" v-model="productCount">
-                                    <button type="button" tabindex="0" aria-label="Add one more" @click={DecProductCount}> + </button>
+                                    <button type="button" tabindex="0" aria-label="Add one more" @click="productCount++"> + </button>
                                 </div>
                                 <div class="product-details__stock">
                                     <p>{{PDStock.stockLevelStatus}}</p>
@@ -51,9 +52,8 @@ const ProductDetailsTemplate = {
                                     </div>
                                 </form>
                             </div> 
-
                             <div class="product-details__cart-adding">
-                                <button @click="addToCartFunc({PDCode, productCount})" class="product-details__addtocart btn">Add to cart</button>
+                                <button @click="mainStore.addToCartFunc(PDCode, productCount)" class="product-details__addtocart btn">Add to cart</button>
                                 <button class="product-details__addtowishlist">
                                     <span class="material-symbols-outlined">favorite</span>Add to wishlist
                                 </button>

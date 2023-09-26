@@ -1,7 +1,7 @@
 import ProductDetailsTemplate from './productDetails.template';
-import AppStore from "../../store";
 import {productDetail} from "./productDetails.api.data";
 import {ProductModel} from './productDetails.model';
+import { useMainStore } from "../../store/index";
 
 const {ref} = (window as any).Vue;
 const {defineComponent} = (window as any).Vue;
@@ -35,35 +35,14 @@ const ProductDetails = defineComponent({
             PDImg.value = pdResponse.images[0].url;
             PDDetails.value = pdResponse.description; 
             PDStock.value = pdResponse.stock; 
-            //console.log(pdResponse);
-            //console.log(AllImg.value);
         };
-        //console.log('pass' + PDrating);
-        //console.log(PDData);
-        //console.log('pick' + PDData.availableForPickup);
-        //console.log(AppStore.state.cart)
-        
-        //console.log(payload);
-        return {PDData, PDrating, PDName, PDSummary, PDCode, PDPrice, PDImg, AllImg, imgURL, PDDetails, PDStock, productCount, productDetailsInfo};
-    },
-    methods: {
-        addToCartFunc({PDCode, productCount}:ProductModel){
-            localStorage.setItem("Cart_PD_ID", PDCode);
-            AppStore.dispatch('addToCart', {PDCode, productCount});
-            console.log({PDCode, productCount});
-        },
-        IncProductCount(productCount:number) {
-            console.log(productCount);
-            return productCount = productCount + 1;
-        }
+        const mainStore = useMainStore();
+        //mainStore.loadProducts();
+
+        return {mainStore, PDData, PDrating, PDName, PDSummary, PDCode, PDPrice, PDImg, AllImg, imgURL, PDDetails, PDStock, productCount, productDetailsInfo};
     },
     mounted() {
         this.productDetailsInfo();
-    },
-    computed: {
-        updateCart() {
-            return AppStore.getters.getAddCart;
-        }
     }
 });
 

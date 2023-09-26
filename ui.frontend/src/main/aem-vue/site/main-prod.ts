@@ -1,22 +1,20 @@
 import "./main-prod.scss";
-import HelloWorld from "../components/helloworld/main";
+// import { createPinia } from 'pinia';
+// import { useMainStore } from "../store";
 import Login from "../components/login/main";
-import Counter from "../components/counter/main";
 import ProductDetails from "../components/productDetails/productDetails.main";
-import AppStore from "../store";
 import Registration from "../components/registration/registration.main";
 import UserProfile from "../components/user-profile/profile.main";
 import UserAddress from "../components/user-address/address.main";
 import Cart from "../components/cart/cart.main";
 
 const {createApp} = (window as any).Vue;
+const {createPinia} = (window as any).Pinia;
 
 // Create the Vue app
 const app = createApp({
     components: {
-        HelloWorld,
         Login,
-        Counter,
         Registration,
         ProductDetails,
         UserProfile,
@@ -25,6 +23,7 @@ const app = createApp({
     }
 });
 
-app.use(AppStore);
+// app.use(useMainStore);
 // Mount the app to the element with the ID "app"
+app.use(createPinia());
 app.mount('#app');

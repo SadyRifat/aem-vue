@@ -1,39 +1,34 @@
 import CartTemplate from './cart.template';
-import AppStore from "../../store";
-import {cart} from "./cart.api.data";
 import {CartModel} from './cart.model';
-
-const {ref, watchEffect} = (window as any).Vue;
+import { useMainStore } from "../../store/index";
 const {defineComponent} = (window as any).Vue;
+const {ref} = (window as any).Vue;
 
 const Cart = defineComponent({
     template: CartTemplate.template, props: {
         modelData: Object
     }, setup() {
         
-        return {};
-    },
-    methods: {
-        // addToCartFunc({PDCode, productCount}:ProductModel){
-        //     // localStorage.setItem("Cart_PD_ID", PDCode);
-        //     // localStorage.setItem("Cart_PD_Count", productCount);
-        //     AppStore.dispatch('addToCart', {PDCode, productCount});
-        //     console.log({PDCode, productCount});
-        // }
+        //return {};
+        const cartStore = useMainStore()
+
+        // this subscription will be kept even after the component is unmounted
+        const abc = "231321";
+        const currProductID = ref('');
+        let cartWatch = '';
+        cartWatch = cartStore.$subscribe(() => {
+            console.log('store updated');
+            currProductID.value = cartStore.cart[1].id;
+            console.log(currProductID);
+            //const PD_API_URL = 'https://spartacus-demo.eastus.cloudapp.azure.com:8443/occ/v2/electronics-spa/products/'+{{currProductID}:any} + '?fields=code,configurable,configuratorType,name,summary,price(formattedValue,DEFAULT),images(galleryIndex,FULL),baseProduct,averageRating,stock(DEFAULT),description,availableForPickup,url,numberOfReviews,manufacturer,categories(FULL),priceRange,multidimensional,tags&lang=en&curr=USD';
+            //console.log(PD_API_URL);
+            //return currProductID;
+        })
+
+        return { abc, currProductID };
     },
     mounted() {
-        //this.productDetailsInfo();
-    },
-    computed: {
-        updateCart() {
-            const handleCartUpdate = () => {
-                console.log('Cart items have been updated:');
-                // Perform any other actions you want here
-            };
-            // Use watchEffect to run handleCartUpdate whenever cartItems changes
-            watchEffect(() => handleCartUpdate());
-            return AppStore.state.cart[1].qty;
-        },
+        this.cartWatch();
     }
 });
 

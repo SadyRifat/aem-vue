@@ -1,7 +1,7 @@
 const CartTemplate = {
     /*html*/
     template: `<div class="cart">
-                    <div class="">{{updateCart}}</div>
+                    <div class="">Current ID: {{ currProductID }}</div>
                 </div>
                 `,
     props: ['modelData']

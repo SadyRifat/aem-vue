@@ -13,3 +13,4 @@ Array.from(document.getElementsByTagName("user-profile")).forEach((element) => {
 Array.from(document.getElementsByTagName("user-address")).forEach((element) => {
     element.setAttribute(":model-data", JSON.stringify(userAddressData));
 });
+0

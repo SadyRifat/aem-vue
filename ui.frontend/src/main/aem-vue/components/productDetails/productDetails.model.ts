@@ -12,7 +12,6 @@ interface ProductModel {
     PDStock: number;
     productCount: number;
     productID: number;
-    PDCount: number;
 }
 export { ProductModel };
 
