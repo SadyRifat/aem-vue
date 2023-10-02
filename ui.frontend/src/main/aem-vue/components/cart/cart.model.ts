@@ -14,4 +14,30 @@ interface CartModel {
     productID: number;
     PDCount: number;
 }
-export { CartModel };
+
+type productCode = {
+    code: number;
+};
+
+class ProductModel {
+    quantity: number;
+    product: productCode;
+
+    constructor(quantity: number, code: number) {
+        this.quantity = quantity;
+        this.product = {
+            code: code
+        };
+    }
+}
+
+type cartDetailsModel = { 
+    entry: object,
+    quantity: number
+}
+
+type entriesModel = { 
+    entryNumber: number
+}
+
+export { CartModel, productCode, ProductModel, cartDetailsModel, entriesModel };

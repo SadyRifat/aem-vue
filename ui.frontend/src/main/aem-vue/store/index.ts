@@ -5,7 +5,7 @@ import { ProductModel } from "../components/productDetails/productDetails.model"
 export const useMainStore = defineStore('mainStore', {
     state: () => ({
         products: [],
-        cart: [{"id":"341131", "qty": "2"}] as object[],
+        cart: [] as object[],
         loading: false,
         name: "Riaz"
     }),
@@ -15,18 +15,19 @@ export const useMainStore = defineStore('mainStore', {
     actions: {
         // Define actions here if needed
         addToCartFunc (this: ReturnType<any>, PDCode: any, productCount: ProductModel) {
-            console.log(this.cart);
-            localStorage.setItem("Cart_PD_ID", PDCode);
+            //localStorage.setItem("Cart_PD_ID", PDCode);
             const cartProduct = this.cart.find((product:any) => product.id === PDCode);
-        
+            
             if(cartProduct){
                 cartProduct.qty = cartProduct.qty + productCount;
+                console.log(this.cart);
             }
             else{
                 this.cart.push({
                     id: PDCode,
                     qty: productCount
                 });
+                console.log(this.cart);
             }
         }
     }

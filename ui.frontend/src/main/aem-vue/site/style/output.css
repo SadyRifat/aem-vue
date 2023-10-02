@@ -1651,6 +1651,11 @@ button[type=submit]:hover {
   text-decoration: none;
 }
 
+.cart table, .cart th, .cart td {
+  border: 1px solid #f1f1f1;
+  border-collapse: collapse;
+}
+
 .sidebar {
   position: fixed;
   left: 0;

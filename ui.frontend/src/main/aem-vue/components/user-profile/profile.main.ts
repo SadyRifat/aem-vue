@@ -21,6 +21,8 @@ const UserProfile = defineComponent({
         const userProfile = async () => {
             const userProfileResponse = await getUserProfile();
             Object.assign(form.value, userProfileResponse);
+            localStorage.setItem("currentUserID", userProfileResponse.customerId);
+            console.log(userProfileResponse);
         };
 
         const errors = ref({});

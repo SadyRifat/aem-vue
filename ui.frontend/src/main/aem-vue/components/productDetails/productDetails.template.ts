@@ -5,13 +5,13 @@ const ProductDetailsTemplate = {
                     <div class="product-details__wrapper">
                         <div class="product-details__img">
                             <div>
-                                <img :src='PDImg' />
+                                <!--img :src='PDImg' /-->
                             </div>
                             <div> 
                                 <ul class="product-details__img-gallery">
                                     <li v-for="item in AllImg">
                                         <div v-if='item.format == "thumbnail"'>
-                                            <img :src='imgURL + item.url' />
+                                            <!--img :src='imgURL + item.url' /-->
                                         </div>
                                     </li>
                                 </ul>
@@ -30,7 +30,7 @@ const ProductDetailsTemplate = {
                             <div class="flex">
                                 <div class="product-details__add-to-cart">
                                     <button type="button" tabindex="0" aria-label="Remove one" @click="productCount--"> - </button>
-                                    <input type="number" step="1" tabindex="0" aria-label="Quantity" class="" min="1" max="50" v-model="productCount">
+                                    <input type="number" step="1" tabindex="0" aria-label="Quantity" class="" min="1" max="50" v-model="cartPDQty">
                                     <button type="button" tabindex="0" aria-label="Add one more" @click="productCount++"> + </button>
                                 </div>
                                 <div class="product-details__stock">
