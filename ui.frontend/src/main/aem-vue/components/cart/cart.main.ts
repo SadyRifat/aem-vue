@@ -18,14 +18,12 @@ const Cart = defineComponent({
         const cartProducts : number[] = [];
         const currentUserID = localStorage.getItem("currentUserID");
 
-        const cartData = ref('');
+        const cartData = ref([]);
         const cartPDName = ref('');
         const cartPDID = ref('');
-        const cartPDPrice = ref('');
-        const cartPDTotal = ref('');
-        const cartPDQty = ref('0');
         const cartLength = ref('0');
-
+        const totalPrice = ref('0');
+        
         // const cartDetailsExistingcart = async () => {
         //     const cartResponse = await cartAction.getCartLength(currentUserID);
         //     // cartData.value = cartResponse;
@@ -77,7 +75,8 @@ const Cart = defineComponent({
                 
                 currentCartID.value = localStorage.getItem("Current_Cart_ID");
                 console.log('has cart length and '+ currentCartID.value);
-                const productInstance = new ProductModel(1, currProductID.value);
+                qtyNumber.value = cartStore.cart[0].qty;
+                const productInstance = new ProductModel(qtyNumber.value, currProductID.value);
                 addProductToCart(currentUserID, currentCartID.value, productInstance);
                 //console.log(cartProducts);
             }
@@ -87,15 +86,28 @@ const Cart = defineComponent({
             currentCartID.value = localStorage.getItem("Current_Cart_ID");
             const cartResponse = await cartAction.getCartProducts(currentUserID, currentCartID.value);
             cartData.value = cartResponse;
+            console.log('cartResponse');
             console.log(cartResponse);
-            cartPDName.value = cartResponse.orderEntries[0].product.name;
-            cartPDID.value = cartResponse.orderEntries[0].product.code;
-            cartPDQty.value = cartResponse.orderEntries[0].quantity;
-            cartPDTotal.value = cartResponse.orderEntries[0].totalPrice.value;
             console.log('from mian' + cartPDName.value, cartPDID.value);
+            const total_arr : number[] = [];
+
+            try{
+                cartResponse.orderEntries.map((item:any) => {
+                    total_arr.push(item.totalPrice.value);
+                })
+                console.log(total_arr);
+
+                totalPrice.value = total_arr.reduce((accumulator:number, currentValue:number) => {
+                    return accumulator + currentValue
+                });
+                totalPrice.value = totalPrice.value.toFixed(2);
+            }catch(err){
+                console.error(err);
+            }
         };
+        console.log('totalPrice' + totalPrice.value);
          
-        return { currentCartID, currProductID, cartProducts, qtyNumber, cartLength, cartPDName, cartPDID, cartPDTotal, cartPDQty, cartDetailsInfo };
+        return { currentCartID, currProductID, cartProducts, qtyNumber, cartLength, cartData, totalPrice, cartDetailsInfo };
     },
     mounted() {
         this.cartDetailsInfo();

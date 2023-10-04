@@ -3,4 +3,21 @@
         border: 1px solid #f1f1f1;
         border-collapse: collapse;
     }
+    th,td{
+        padding: 10px;
+    }
+    display: grid;
+    grid-gap: 24px;
+    grid-template-columns: 75% auto;
+    .product-details__add-to-cart{
+        justify-content: center;
+        button{
+            height: 36px;
+        }
+    }
+    &-summery__item{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
 }

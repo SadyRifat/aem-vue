@@ -1651,9 +1651,28 @@ button[type=submit]:hover {
   text-decoration: none;
 }
 
+.cart {
+  display: grid;
+  grid-gap: 24px;
+  grid-template-columns: 75% auto;
+}
 .cart table, .cart th, .cart td {
   border: 1px solid #f1f1f1;
   border-collapse: collapse;
+}
+.cart th, .cart td {
+  padding: 10px;
+}
+.cart .product-details__add-to-cart {
+  justify-content: center;
+}
+.cart .product-details__add-to-cart button {
+  height: 36px;
+}
+.cart-summery__item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .sidebar {

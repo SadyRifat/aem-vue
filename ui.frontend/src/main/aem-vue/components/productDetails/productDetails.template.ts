@@ -1,7 +1,6 @@
 const ProductDetailsTemplate = {
     /*html*/
-    template: `<p>{{mainStore.name}}</p>
-    <div class="product-details">
+    template: `<div class="product-details">
                     <div class="product-details__wrapper">
                         <div class="product-details__img">
                             <div>
@@ -30,7 +29,7 @@ const ProductDetailsTemplate = {
                             <div class="flex">
                                 <div class="product-details__add-to-cart">
                                     <button type="button" tabindex="0" aria-label="Remove one" @click="productCount--"> - </button>
-                                    <input type="number" step="1" tabindex="0" aria-label="Quantity" class="" min="1" max="50" v-model="cartPDQty">
+                                    <input type="number" step="1" tabindex="0" aria-label="Quantity" class="" min="1" max="50" v-model="productCount">
                                     <button type="button" tabindex="0" aria-label="Add one more" @click="productCount++"> + </button>
                                 </div>
                                 <div class="product-details__stock">
