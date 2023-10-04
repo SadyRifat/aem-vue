@@ -641,10 +641,6 @@ video {
   display: table;
 }
 
-.contents{
-  display: contents;
-}
-
 .w-full{
   width: 100%;
 }
@@ -655,6 +651,10 @@ video {
 
 .text-center{
   text-align: center;
+}
+
+.text-right{
+  text-align: right;
 }
 
 .blur{
@@ -2532,6 +2532,17 @@ button[type=submit]:hover {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-bottom: 10px;
+}
+
+.cart .btn {
+  font-weight: 700;
+  padding: 6px 12px;
+  border: 1px solid #dedede;
+}
+
+.cart .btn-danger {
+  color: #fff;
+  background-color: rgb(218, 3, 3);
 }
 
 .sidebar {

@@ -1674,6 +1674,15 @@ button[type=submit]:hover {
   justify-content: space-between;
   margin-bottom: 10px;
 }
+.cart .btn {
+  font-weight: 700;
+  padding: 6px 12px;
+  border: 1px solid #dedede;
+}
+.cart .btn-danger {
+  color: #fff;
+  background-color: rgb(218, 3, 3);
+}
 
 .sidebar {
   position: fixed;

@@ -20,4 +20,13 @@
         justify-content: space-between;
         margin-bottom: 10px;
     }
+    .btn{
+        font-weight: 700;
+        padding: 6px 12px;
+        border: 1px solid #dedede;
+        &-danger{
+            color: #fff;
+            background-color: rgb(218, 3, 3);
+        }
+    }
 }
