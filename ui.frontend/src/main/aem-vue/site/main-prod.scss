@@ -645,6 +645,12 @@ video {
   width: 100%;
 }
 
+.justify-between{
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .border{
   border-width: 1px;
 }

@@ -3,9 +3,17 @@ const CartTemplate = {
     template: `<div class="cart">
                     <div class="cart-details-wrapper">
                         <h2 class="cx-total"> Cart #{{currentCartID}} </h2>
-                        <div class="mb-4" style="color: #38871f" v-for="promo in cartData.appliedOrderPromotions">
-                            <p><strong>{{promo.description}}</strong></p>
+
+                        <div class="flex justify-between">
+                            <div class="mb-4" style="color: #38871f" v-for="promo in cartData.appliedOrderPromotions">
+                                <p><strong>{{promo.description}}</strong></p>
+                            </div>
+                            <div class="flex mb-4">
+                                <button class="btn" @click="getSaveCart(currentUserID, currentCartID)">Saved carts</button>
+                                <button class="btn ml-4" @click="addSaveCart(currentUserID, currentCartID)">Save cart for later</button>
+                            </div>
                         </div>
+                        
                         <table class="w-full" role="table" border="1">
                             <thead>
                                 <tr role="row" class="cx-item-list-header">

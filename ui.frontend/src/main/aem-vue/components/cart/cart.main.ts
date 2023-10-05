@@ -76,7 +76,7 @@ const Cart = defineComponent({
             const UpdateCartData = await cartAction.getUpdateCart(UID, CID, entryNo,  currentProductQty.value);
             cartDetailsInfo();
         };
-        
+
         const deleteProductItem:any = async (UID:string | null, CID:string | null, entryNo: number | null) => {
             const UpdateCartData = await cartAction.deleteItem(UID, CID, entryNo);
         };
